@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Node map · C.B.H.B.</title>
+  <meta name="description" content="Public MeshCore map centered between Boardman and Hermiston, Oregon. Positions come from map.meshcore.io. This site does not invent node readings.">
+  <meta name="theme-color" content="#141414">
+  <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="site-header">
+    <p class="motto-bar">God, Family, Preparedness</p>
+    <div class="wrap header-row">
+      <a class="brand" href="index.html">
+        <img src="assets/cbhb-logo.jpg" width="64" height="64" alt="">
+        <span class="brand-text">
+          <span class="brand-name">C.B.H.B.</span>
+          <span class="brand-full">Columbia Basin Honey Badgers</span>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Pages">
+        <a href="index.html">Home</a>
+        <a href="become-a-tester.html">Tester</a>
+        <a href="meshcore-one-stop.html">One Stop</a>
+        <a href="nodes.html" aria-current="page">Nodes</a>
+        <a href="mesh-tools.html">Mesh Tools</a>
+        <a href="guides/index.html">Guides</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" class="wrap">
+    <article class="prose">
+      <p class="eyebrow">Boardman and Hermiston · about 20 miles apart</p>
+      <h1>Node map</h1>
+      <p class="lede">This is the public MeshCore map, opened around Boardman and Hermiston. The radios on it are the ones that reached <a href="https://map.meshcore.io/">map.meshcore.io</a>. This website does not keep its own list and does not add positions.</p>
+      <p>Tap a radio on the map for its name and when it was last heard. A position is whatever that radio advertised. It may be approximate. A radio that stays on a local mesh and never reaches the public map will not appear.</p>
+      <p>When this site states a distance, it is in miles. Boardman and Hermiston are about 20 miles apart. The map below may use its own scale.</p>
+      <div class="actions">
+        <a class="btn" href="https://map.meshcore.io/?lat=45.84&amp;lon=-119.50&amp;zoom=9">Open the MeshCore map</a>
+        <a class="btn secondary" href="mesh-tools.html">Mesh Tools on aprs.fi</a>
+      </div>
+    </article>
+
+    <div class="map-frame">
+      <iframe title="Public MeshCore map, opened around Boardman and Hermiston, Oregon" src="https://map.meshcore.io/?lat=45.84&amp;lon=-119.50&amp;zoom=9"></iframe>
+    </div>
+
+    <article class="prose">
+      <h2>If the map is blank</h2>
+      <p>Use <a href="https://map.meshcore.io/?lat=45.84&amp;lon=-119.50&amp;zoom=9">Open the MeshCore map</a>. That is the same public map, in its own page. The large node list behind it is not readable from a plain website like this one, so this page shows the map itself instead of copying numbers.</p>
+
+      <h2>Meshtastic</h2>
+      <p><a href="mesh-tools.html">Mesh Tools</a> can also show Meshtastic radios, using the public list at <a href="https://meshmap.net/">meshmap.net</a>. Only radios that reach the internet are on that list. This page does not copy those positions. Open meshmap.net, or use Mesh Tools on <a href="https://aprs.fi/">aprs.fi</a>, to see them.</p>
+
+      <h2>Same sources as Mesh Tools</h2>
+      <p>Mesh Tools reads MeshCore nodes from <a href="https://map.meshcore.io/api/v1/nodes">map.meshcore.io/api/v1/nodes</a> and Meshtastic nodes from <a href="https://meshmap.net/nodes.json">meshmap.net/nodes.json</a>. The map on this page is that MeshCore map, so you are looking at the same public MeshCore feed, drawn by the map’s own site.</p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="footer-motto">God, Family, Preparedness</p>
+      <p>Columbia Basin Honey Badgers · Boardman and Hermiston, Oregon</p>
+      <p><a href="privacy.html">Privacy policy</a> · <a href="https://github.com/thescrawler">thescrawler on GitHub</a></p>
+    </div>
+  </footer>
+</body>
+</html>

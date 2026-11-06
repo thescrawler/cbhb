@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MeshCore One Stop · C.B.H.B.</title>
+  <meta name="description" content="MeshCore One Stop is the C.B.H.B. Android companion for a MeshCore radio. Package com.cbhb.meshcoreonestop. Public store listings are not up yet.">
+  <meta name="theme-color" content="#141414">
+  <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="site-header">
+    <p class="motto-bar">God, Family, Preparedness</p>
+    <div class="wrap header-row">
+      <a class="brand" href="index.html">
+        <img src="assets/cbhb-logo.jpg" width="64" height="64" alt="">
+        <span class="brand-text">
+          <span class="brand-name">C.B.H.B.</span>
+          <span class="brand-full">Columbia Basin Honey Badgers</span>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Pages">
+        <a href="index.html">Home</a>
+        <a href="become-a-tester.html">Tester</a>
+        <a href="meshcore-one-stop.html" aria-current="page">One Stop</a>
+        <a href="nodes.html">Nodes</a>
+        <a href="mesh-tools.html">Mesh Tools</a>
+        <a href="guides/index.html">Guides</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" class="wrap">
+    <article class="prose">
+      <p class="eyebrow">Android app</p>
+      <h1>MeshCore One Stop</h1>
+      <p class="lede">MeshCore One Stop is the Android app that sits with your MeshCore radio. The phone is the screen. The radio does the talking on the mesh.</p>
+
+      <dl class="facts">
+        <div>
+          <dt>Package</dt>
+          <dd>com.cbhb.meshcoreonestop</dd>
+        </div>
+        <div>
+          <dt>Sideload build</dt>
+          <dd>99.1.2</dd>
+        </div>
+        <div>
+          <dt>Phone</dt>
+          <dd>Android</dd>
+        </div>
+      </dl>
+      <p>The sideload build number is the current version people may already have. This site does not host that file and does not link to a private download.</p>
+
+      <h2>Downloads</h2>
+      <p>Public downloads are planned in three places. None of those listings exist yet, so there is no store link on this page:</p>
+      <ul class="plain">
+        <li>Google Play — not listed yet</li>
+        <li>GitHub releases — not listed yet</li>
+        <li>F-Droid — not listed yet</li>
+      </ul>
+      <p>The near-term way onto the app is the Play Store closed test. That test is not open yet. See <a href="become-a-tester.html">Become a tester</a>. The <a href="privacy.html">privacy policy</a> matches how the app works.</p>
+
+      <h2>User guide</h2>
+      <p>Short answers for everyday use. A step list is also on <a href="guides/use-meshcore-one-stop.html">Use MeshCore One Stop</a>.</p>
+      <ul class="jump">
+        <li><a href="#install-and-pair">Install and pair</a></li>
+        <li><a href="#my-devices">My Devices</a></li>
+        <li><a href="#telemetry">Telemetry</a></li>
+        <li><a href="#export">Export and logs</a></li>
+        <li><a href="#map-and-messages">Map and messages</a></li>
+        <li><a href="#retune">Retune</a></li>
+        <li><a href="#themes">Themes</a></li>
+      </ul>
+
+      <h2 id="install-and-pair">Install and pair</h2>
+      <p>Install the app from the Play test when that join link is ready. This page is not an install button.</p>
+      <p>After it is installed, the app connects to your own MeshCore radio in one of three ways:</p>
+      <ul class="plain">
+        <li><strong>Bluetooth.</strong> Wireless, the way a phone connects to a speaker or a headset.</li>
+        <li><strong>USB.</strong> A cable between the phone and the radio.</li>
+        <li><strong>TCP.</strong> A network address, if the radio is already reachable that way.</li>
+      </ul>
+      <p>Messages go through that radio onto the mesh. If the phone is not connected to the radio, the app cannot send chat for you.</p>
+
+      <h2 id="my-devices">My Devices</h2>
+      <p>You can give a radio a display name that lives only on your phone. Examples: <strong>C.B.H.B. Node (1)</strong> or <strong>C.B.H.B. Node (Patterson)</strong>.</p>
+      <p>That name helps you tell radios apart in the app. It does not change the name that goes out over the air.</p>
+
+      <h2 id="telemetry">Telemetry</h2>
+      <p>Open the My Devices tab, or pull down to refresh, and the app asks the radio for a reading. You see voltage, and whether that voltage is trending up or down.</p>
+      <p>The app does not keep asking in the background. It reads when you open that tab or when you refresh it yourself.</p>
+      <p>The battery percent is an estimate from the voltage. It is not a separate battery gauge.</p>
+
+      <h2 id="export">Export and logs</h2>
+      <p>You can export settings. That export leaves out passwords and the private key.</p>
+      <p>You can also save a CSV log for each device. The log stays on the phone unless you choose to share the file yourself.</p>
+
+      <h2 id="map-and-messages">Map and messages</h2>
+      <p>Chat and other off-grid messages travel only while the phone is connected to your radio by Bluetooth, USB, or TCP.</p>
+      <p>The map is a different path. Map and status layers can download public feeds: MeshCore nodes, Meshtastic nodes, FT8 when you ask for it, and Winlink reports sent from WINLINK to APWL2K. The phone keeps the last good download so you can look at it again. Those feeds come from the internet. They are not the same path as your mesh messages.</p>
+
+      <h2 id="retune">Remote retune</h2>
+      <p>If you own a repeater, the app can retune that radio from the phone.</p>
+      <ul class="plain">
+        <li>It asks you to confirm before it changes the radio.</li>
+        <li>The radio reboots. Expect it to drop offline for a moment.</li>
+        <li><strong>Save as main</strong> stores that setup as the one you can return to.</li>
+        <li><strong>Restore main</strong> puts the saved setup back.</li>
+      </ul>
+      <p>Retuning a companion radio is a separate checkbox. Companion retune does not change transmit power.</p>
+
+      <h2 id="themes">Themes</h2>
+      <p>The app has four looks: <strong>Day</strong>, <strong>Night</strong>, <strong>OLED</strong>, and <strong>Auto</strong>.</p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="footer-motto">God, Family, Preparedness</p>
+      <p>Columbia Basin Honey Badgers · Boardman and Hermiston, Oregon</p>
+      <p><a href="privacy.html">Privacy policy</a> · <a href="https://github.com/thescrawler">thescrawler on GitHub</a></p>
+    </div>
+  </footer>
+</body>
+</html>

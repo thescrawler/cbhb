@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Install Mesh Tools · C.B.H.B.</title>
+  <meta name="description" content="Install aprs.fi Mesh Tools 1.6.3-beta with Tampermonkey. Phone steps use Firefox for Android and Import from URL. A Greasy Fork listing is not up yet.">
+  <meta name="theme-color" content="#141414">
+  <link rel="icon" href="../assets/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="../css/site.css">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="site-header">
+    <p class="motto-bar">God, Family, Preparedness</p>
+    <div class="wrap header-row">
+      <a class="brand" href="../index.html">
+        <img src="../assets/cbhb-logo.jpg" width="64" height="64" alt="">
+        <span class="brand-text">
+          <span class="brand-name">C.B.H.B.</span>
+          <span class="brand-full">Columbia Basin Honey Badgers</span>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Pages">
+        <a href="../index.html">Home</a>
+        <a href="../become-a-tester.html">Tester</a>
+        <a href="../meshcore-one-stop.html">One Stop</a>
+        <a href="../nodes.html">Nodes</a>
+        <a href="../mesh-tools.html">Mesh Tools</a>
+        <a href="index.html" aria-current="page">Guides</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" class="wrap">
+    <article class="prose">
+      <p class="eyebrow">Guide · version 1.6.3-beta</p>
+      <h1>Install Mesh Tools</h1>
+      <p class="lede">aprs.fi Mesh Tools is a userscript: a small extra that a browser add-on runs on <a href="https://aprs.fi">aprs.fi</a>. It is not its own app on your home screen. You install Tampermonkey once, then install this script into it. After that, opening aprs.fi is enough.</p>
+      <p>These steps follow the project’s <a href="https://github.com/thescrawler/aprsfi-mesh-tools/blob/main/docs/Installation.md">Installation</a> page and <a href="https://github.com/thescrawler/aprsfi-mesh-tools/blob/main/docs/What-is-Tampermonkey.md">What is Tampermonkey?</a>. The script only runs on aprs.fi. Turning it off puts aprs.fi back the way it was. Your aprs.fi account is never changed.</p>
+
+      <div class="note">
+        <strong class="lead-in">No Greasy Fork link yet</strong>
+        <p>A Greasy Fork listing is planned. It does not exist yet. Use the GitHub link below.</p>
+      </div>
+
+      <h2>On a phone (usual way)</h2>
+      <p>Chrome on a phone cannot run extensions, so Tampermonkey will not work there. On Android, use Firefox. Edge also works. Kiwi Browser can run it, but Tampermonkey says Kiwi is no longer updated, so Firefox or Edge is safer.</p>
+      <p>Firefox on Android is the usual way. Copy this link, open Tampermonkey’s <strong>Utilities</strong> page, then use <strong>Import from URL</strong>.</p>
+      <div class="url-box">
+        <code id="script-url">https://raw.githubusercontent.com/thescrawler/aprsfi-mesh-tools/main/aprsfi-mesh-tools.user.js</code>
+        <button type="button" data-copy="script-url">Copy link</button>
+      </div>
+      <ol class="steps">
+        <li>Long-press the link and choose <strong>Copy link</strong> (or copy it from the box).</li>
+        <li>In Firefox, tap the menu (the three dots), then <strong>Extensions</strong>. Older Firefox says <strong>Add-ons</strong>. Tap <strong>Tampermonkey</strong>. If you already see a Tampermonkey icon, tap that instead.</li>
+        <li>Tap <strong>Dashboard</strong>.</li>
+        <li>At the top of the Dashboard, tap the <strong>Utilities</strong> tab. On a small screen those tabs sit in a row you can slide sideways until <strong>Utilities</strong> shows. Tampermonkey’s own help says: if that tab is missing, set <strong>Config mode</strong> to <strong>Beginner</strong> or <strong>Advanced</strong>.</li>
+        <li>Find <strong>Import from URL</strong>, paste the link, and tap <strong>Install</strong>.</li>
+        <li>Tap <strong>Install</strong> again on the next page.</li>
+      </ol>
+      <p>If Tampermonkey is not in Firefox yet: tap the three dots, then <strong>Extensions</strong>, and search for Tampermonkey.</p>
+
+      <h3>Edge and Kiwi on Android</h3>
+      <p>Install Firefox or Microsoft Edge from the Play Store, then add Tampermonkey. In Edge tap the menu, then <strong>Extensions</strong>, and add Tampermonkey. Kiwi is usually the same path as Edge. Then use the same link and the same Utilities page:</p>
+      <ul class="plain">
+        <li><strong>Edge:</strong> usually the menu, then <strong>Extensions</strong>, then <strong>Tampermonkey</strong>, then <strong>Dashboard</strong>.</li>
+        <li><strong>Kiwi:</strong> usually the same path. Firefox or Edge is safer.</li>
+      </ul>
+      <p>On a small screen, slide the tab row until <strong>Utilities</strong> shows. If that tab is missing, set <strong>Config mode</strong> to <strong>Beginner</strong> or <strong>Advanced</strong>.</p>
+
+      <h3>iPhone or iPad</h3>
+      <p>iPhone and iPad support is new and less tested. If something does not work, tell the project at <a href="https://github.com/thescrawler/aprsfi-mesh-tools/issues">GitHub Issues</a>.</p>
+      <ol class="steps">
+        <li>Install the <strong>Tampermonkey</strong> app from the App Store.</li>
+        <li>Open <strong>Settings</strong>, then <strong>Safari</strong>, then <strong>Extensions</strong>. On newer iOS: <strong>Settings</strong>, <strong>Apps</strong>, <strong>Safari</strong>, <strong>Extensions</strong>. Turn on <strong>Tampermonkey</strong> and set it to <strong>Allow</strong> on <strong>All Websites</strong>.</li>
+        <li>Long-press the link in the box above and choose <strong>Copy link</strong>.</li>
+        <li>In Safari, open Tampermonkey and tap <strong>Dashboard</strong>. This is usually the puzzle-piece or <strong>aA</strong> button, then <strong>Tampermonkey</strong>, then <strong>Dashboard</strong>.</li>
+        <li>Tap the <strong>Utilities</strong> tab. Slide the tab row if you need to. If the tab is missing, set <strong>Config mode</strong> to <strong>Beginner</strong> or <strong>Advanced</strong>.</li>
+        <li>Find <strong>Import from URL</strong>, paste the link, tap <strong>Install</strong>, then tap <strong>Install</strong> again.</li>
+        <li>Open <a href="https://aprs.fi">aprs.fi</a>.</li>
+      </ol>
+      <p>Another browser on the iPhone only works if it can run the same extension. Bluefy, for example, is a Bluetooth browser and does not have Tampermonkey’s Dashboard.</p>
+
+      <h2>On a computer</h2>
+      <h3>Google Chrome</h3>
+      <ol class="steps">
+        <li>Open the <a href="https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo">Tampermonkey page on the Chrome Web Store</a> and click <strong>Add to Chrome</strong>, then <strong>Add extension</strong>.</li>
+        <li>Turn on <strong>Allow User Scripts</strong>. Click the puzzle-piece <strong>Extensions</strong> icon, then the menu next to Tampermonkey, then <strong>Manage extension</strong>. You can also type <code>chrome://extensions</code> and click <strong>Details</strong> under Tampermonkey.</li>
+        <li>Turn on <strong>Allow User Scripts</strong>. On older Chrome that switch is not there. Turn on <strong>Developer mode</strong> instead, at the top of <code>chrome://extensions</code>.</li>
+      </ol>
+      <p>If the script is installed but the panel never appears, the missing Allow User Scripts or Developer mode switch is the most common cause.</p>
+
+      <h3>Microsoft Edge</h3>
+      <ol class="steps">
+        <li>Open <a href="https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd">Tampermonkey on Edge Add-ons</a> and click <strong>Get</strong>.</li>
+        <li>Go to <code>edge://extensions</code>. Under Tampermonkey, click <strong>Details</strong> and turn on <strong>Allow User Scripts</strong>. If that is not shown, turn on <strong>Developer mode</strong>.</li>
+      </ol>
+
+      <h3>Firefox</h3>
+      <p>Open <a href="https://addons.mozilla.org/firefox/addon/tampermonkey/">Tampermonkey on Firefox Add-ons</a>, then click <strong>Add to Firefox</strong> and <strong>Add</strong>. No extra switch is needed.</p>
+
+      <h3>Then install the script</h3>
+      <ol class="steps">
+        <li>Click <a href="https://github.com/thescrawler/aprsfi-mesh-tools/raw/main/aprsfi-mesh-tools.user.js">Install aprs.fi Mesh Tools</a>.</li>
+        <li>Tampermonkey opens an install screen showing <strong>aprs.fi Mesh Tools (beta)</strong>. Click <strong>Install</strong>.</li>
+        <li>Open or reload <a href="https://aprs.fi">aprs.fi</a>. Wait a couple of seconds. The Mesh Tools panel appears in the bottom-right corner.</li>
+      </ol>
+
+      <h2>If the link only shows code</h2>
+      <p>You are in a browser that does not have Tampermonkey. On a phone that is often Chrome. Open the link in the browser where Tampermonkey is installed, or use Import from URL as in the phone steps above.</p>
+
+      <h2>The first time it downloads data</h2>
+      <p>Tampermonkey may ask whether the script can connect to another website. The script only connects to these four sites, which are named in its header:</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Site</th>
+              <th>Why</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>map.meshcore.io</td>
+              <td>List of MeshCore radios</td>
+            </tr>
+            <tr>
+              <td>meshmap.net</td>
+              <td>List of Meshtastic radios</td>
+            </tr>
+            <tr>
+              <td>s3.amazonaws.com</td>
+              <td>Terrain (hill height) tiles for coverage</td>
+            </tr>
+            <tr>
+              <td>retrieve.pskreporter.info</td>
+              <td>FT8 spots, and only after you tap Fetch FT8 now</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Choose <strong>Always allow</strong> (or <strong>Always allow domain</strong>) for each. Nothing about you is uploaded. Details are in <a href="https://github.com/thescrawler/aprsfi-mesh-tools/blob/main/docs/Privacy-and-Data-Sources.md">Privacy and data sources</a>.</p>
+
+      <h2>First time on the map</h2>
+      <ol class="steps">
+        <li>Open <a href="https://aprs.fi">aprs.fi</a> in the same browser where Tampermonkey is installed.</li>
+        <li>A white <strong>Mesh Tools</strong> panel appears in the bottom-right corner. Read the welcome tip and tap <strong>Got it</strong>.</li>
+        <li>Zoom in. MeshCore radios appear as colored diamonds. Meshtastic radios appear as green dots with an M. Further out than about a state or region, the line says to zoom in closer.</li>
+        <li>Tap a red repeater diamond. In its popup, tap <strong>Show coverage</strong>. After a few seconds, a shaded area shows where it can probably reach. Green is a strong guess, yellow is fair, and orange is weak. Trees and buildings are not included.</li>
+        <li>Open the <strong>Coverage</strong> tab and tap <strong>Drop a pin to test a spot</strong>, then tap the map, to try a place with no repeater.</li>
+        <li>Tap any small round info button in the panel for a one-line explanation of that setting.</li>
+      </ol>
+      <p>The panel remembers the last tab. Tap the title bar to fold it. Drag the <strong>drag to move</strong> bar if it covers something. Double-tap that bar, or tap the reset control, to send it back to the corner. Miles are the default distance unit. You can switch to kilometers on the Coverage tab.</p>
+      <p>More on each tab is in the project guide: <a href="https://github.com/thescrawler/aprsfi-mesh-tools/blob/main/docs/Mesh-Nodes.md">Mesh nodes</a>, <a href="https://github.com/thescrawler/aprsfi-mesh-tools/blob/main/docs/Coverage.md">Coverage</a>, <a href="https://github.com/thescrawler/aprsfi-mesh-tools/blob/main/docs/Map-Layers.md">Map layers</a>, and <a href="https://github.com/thescrawler/aprsfi-mesh-tools/blob/main/docs/FAQ.md">FAQ</a>.</p>
+
+      <h2>Old separate scripts</h2>
+      <p>Mesh Tools replaces three older scripts:</p>
+      <ul class="plain">
+        <li>aprs.fi MeshCore + Meshtastic Overlay</li>
+        <li>aprs.fi MeshCore Coverage Overlay</li>
+        <li>aprs.fi Map Layer Toggles</li>
+      </ul>
+      <p>If one of them is still running, that part of Mesh Tools stays off so nothing is drawn twice. You will see a yellow notice that old scripts are still on. Open the Tampermonkey Dashboard, switch those old scripts off (or delete them), and reload aprs.fi.</p>
+
+      <h2>Updates, and taking it off</h2>
+      <p>Tampermonkey checks for updates from this GitHub repository, about once a day. To update now, open the Dashboard, select <strong>aprs.fi Mesh Tools (beta)</strong>, and choose <strong>Trigger update</strong>. You can also open the install link again. Your settings, pins, and saved coverage stay.</p>
+      <p>The version number is at the bottom of the panel, under panel settings. It should read <strong>1.6.3-beta</strong>. Help / Wiki there opens the project guide.</p>
+      <p>To remove the script, open the Dashboard and use the trash control next to <strong>aprs.fi Mesh Tools (beta)</strong>. That also removes its saved settings. aprs.fi itself is not changed.</p>
+      <p>If the panel never shows, the project’s <a href="https://github.com/thescrawler/aprsfi-mesh-tools/blob/main/docs/Troubleshooting.md">Troubleshooting</a> page is the place to look. The usual causes are the script switch being off, a phone browser without Tampermonkey, or Allow User Scripts still off on a computer.</p>
+
+      <p class="credit">Install steps are from the aprs.fi Mesh Tools guide. MIT License, © 2026 thescrawler. Source: <a href="https://github.com/thescrawler/aprsfi-mesh-tools">github.com/thescrawler/aprsfi-mesh-tools</a>.</p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="footer-motto">God, Family, Preparedness</p>
+      <p>Columbia Basin Honey Badgers · Boardman and Hermiston, Oregon</p>
+      <p><a href="../privacy.html">Privacy policy</a> · <a href="https://github.com/thescrawler">thescrawler on GitHub</a></p>
+    </div>
+  </footer>
+  <script src="../js/copy.js"></script>
+</body>
+</html>

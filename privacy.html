@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy policy · C.B.H.B.</title>
+  <meta name="description" content="Privacy policy for MeshCore One Stop, the C.B.H.B. Android app. No account. Radio messages stay on the mesh. Map feeds are cached on the phone.">
+  <meta name="theme-color" content="#141414">
+  <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="site-header">
+    <p class="motto-bar">God, Family, Preparedness</p>
+    <div class="wrap header-row">
+      <a class="brand" href="index.html">
+        <img src="assets/cbhb-logo.jpg" width="64" height="64" alt="">
+        <span class="brand-text">
+          <span class="brand-name">C.B.H.B.</span>
+          <span class="brand-full">Columbia Basin Honey Badgers</span>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Pages">
+        <a href="index.html">Home</a>
+        <a href="become-a-tester.html">Tester</a>
+        <a href="meshcore-one-stop.html">One Stop</a>
+        <a href="nodes.html">Nodes</a>
+        <a href="mesh-tools.html">Mesh Tools</a>
+        <a href="guides/index.html">Guides</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" class="wrap">
+    <article class="prose">
+      <p class="eyebrow">MeshCore One Stop</p>
+      <h1>Privacy policy</h1>
+      <p>Last updated November 6, 2026. This policy matches the current build of the app, sideload version 99.1.2, package <strong>com.cbhb.meshcoreonestop</strong>.</p>
+      <p>MeshCore One Stop is published for the Columbia Basin Honey Badgers (C.B.H.B.). Questions go to <a href="https://github.com/thescrawler">github.com/thescrawler</a>.</p>
+
+      <h2>The short version</h2>
+      <p>The app does not ask you to create an account. It talks to your MeshCore radio over Bluetooth, USB, or TCP. Your messages stay on the mesh through that radio. They are not sent to a C.B.H.B. server.</p>
+      <p>Map layers can download public feeds and keep the last good download on the phone. Names you set in My Devices, device logs, settings, and a repeater password you choose to save stay on the phone. The app has no affiliate ads.</p>
+
+      <h2>No account</h2>
+      <p>There is no sign-in, no C.B.H.B. user account, and no account database. We do not ask for your name, email address, or phone number inside the app.</p>
+
+      <h2>Your radio and your messages</h2>
+      <p>The app connects to the radio you pair or address yourself:</p>
+      <ul class="plain">
+        <li>Bluetooth</li>
+        <li>USB</li>
+        <li>TCP</li>
+      </ul>
+      <p>Chat and other off-grid messages go through that connection onto the mesh. C.B.H.B. does not receive a copy. If the phone is not connected to the radio that way, the app is not carrying those messages.</p>
+
+      <h2>Map layers and public feeds</h2>
+      <p>Map and status layers are separate from mesh chat. They can download public feeds:</p>
+      <ul class="plain">
+        <li>MeshCore nodes</li>
+        <li>Meshtastic nodes</li>
+        <li>FT8, when you ask for it (on demand, not by itself)</li>
+        <li>Winlink reports sent from WINLINK to APWL2K</li>
+      </ul>
+      <p>The phone stores the last good download of those feeds so you can open it again. Those are other people’s public radio reports, not a private profile of you.</p>
+      <p>When the phone downloads a public feed, that site can see the phone’s internet address, the same way any website can. C.B.H.B. does not receive that address in an account record, because there is no account.</p>
+
+      <h2>My Devices and telemetry</h2>
+      <p>Voltage, and the trend of that voltage, are read when you open the My Devices tab or when you pull to refresh. The app does not poll for telemetry in the background.</p>
+      <p>Battery percent shown in the app is estimated from voltage on the phone. It is not sent off as its own report.</p>
+
+      <h2>Names, logs, and exports</h2>
+      <p>Local display names, such as “C.B.H.B. Node (1)” or “C.B.H.B. Node (Patterson)”, stay on the phone. They do not change the name the radio sends on the air.</p>
+      <p>Per-device logs stay on the phone. If you export a CSV, that file is created for you. Exporting it does not upload it to C.B.H.B.</p>
+      <p>A settings export leaves out passwords and the private key.</p>
+
+      <h2>Repeater admin password</h2>
+      <p>If you save a repeater admin password, it is stored on the phone so the app can use it for command-line and radio settings, including a retune of a repeater you own. It is not included in a settings export. C.B.H.B. does not keep a server copy.</p>
+      <p>Retune asks you to confirm, and the radio reboots. Companion retune is a separate checkbox and does not change transmit power. That action stays between the app and the radio you are connected to.</p>
+
+      <h2>Ads</h2>
+      <p>The app does not show affiliate ads. An upstream store banner that used to be in the project was removed. We do not sell advertising space in the app and we do not sell personal information.</p>
+
+      <h2>What this policy does not add</h2>
+      <p>This policy describes the behavior above. It does not add tracking, an account, a newsletter, or other collection. If a later build starts handling information differently, this page will be updated and the date at the top will change.</p>
+
+      <h2>How long data stays</h2>
+      <p>Names, logs, cached map downloads, settings, and any saved repeater password remain on the phone until you delete them, clear the app’s storage, or uninstall the app. C.B.H.B. has no account copy to erase, because no account is created.</p>
+
+      <h2>Children</h2>
+      <p>MeshCore One Stop is a tool for people using their own mesh radio. It does not create an account, and it is not built to collect information about children. We do not knowingly collect personal information from children.</p>
+
+      <h2>This website</h2>
+      <p>The C.B.H.B. website is a set of plain pages. It does not ask you to sign in. It does not run analytics. It does not use tracking cookies, and it does not show a cookie banner because it does not set those cookies.</p>
+      <p>The <a href="nodes.html">node map</a> page loads the public MeshCore map from map.meshcore.io inside the page, and links to that map. That map is a separate site. Your browser talks to it directly when the page is open. This website does not keep a copy of node positions.</p>
+      <p><a href="mesh-tools.html">aprs.fi Mesh Tools</a> is a separate browser add-on. Its own data notes are in that project’s guide: <a href="https://github.com/thescrawler/aprsfi-mesh-tools/blob/main/docs/Privacy-and-Data-Sources.md">Privacy and data sources</a>.</p>
+
+      <h2>Changes</h2>
+      <p>If this policy changes, the new text will be posted on this page with a new date.</p>
+
+      <h2>Contact</h2>
+      <p>Columbia Basin Honey Badgers (C.B.H.B.)<br>
+      <a href="https://github.com/thescrawler">https://github.com/thescrawler</a></p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="footer-motto">God, Family, Preparedness</p>
+      <p>Columbia Basin Honey Badgers · Boardman and Hermiston, Oregon</p>
+      <p><a href="privacy.html">Privacy policy</a> · <a href="https://github.com/thescrawler">thescrawler on GitHub</a></p>
+    </div>
+  </footer>
+</body>
+</html>

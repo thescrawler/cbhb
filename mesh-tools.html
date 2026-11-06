@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>aprs.fi Mesh Tools · C.B.H.B.</title>
+  <meta name="description" content="aprs.fi Mesh Tools is a free Tampermonkey userscript. It shows MeshCore and Meshtastic radios, a hill coverage estimate, and map layer switches on aprs.fi. Version 1.6.3-beta.">
+  <meta name="theme-color" content="#141414">
+  <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="site-header">
+    <p class="motto-bar">God, Family, Preparedness</p>
+    <div class="wrap header-row">
+      <a class="brand" href="index.html">
+        <img src="assets/cbhb-logo.jpg" width="64" height="64" alt="">
+        <span class="brand-text">
+          <span class="brand-name">C.B.H.B.</span>
+          <span class="brand-full">Columbia Basin Honey Badgers</span>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Pages">
+        <a href="index.html">Home</a>
+        <a href="become-a-tester.html">Tester</a>
+        <a href="meshcore-one-stop.html">One Stop</a>
+        <a href="nodes.html">Nodes</a>
+        <a href="mesh-tools.html" aria-current="page">Mesh Tools</a>
+        <a href="guides/index.html">Guides</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" class="wrap">
+    <article class="prose">
+      <p class="eyebrow">Browser add-on · version 1.6.3-beta</p>
+      <h1>aprs.fi Mesh Tools</h1>
+      <p class="lede">A small add-on, run by Tampermonkey, that adds MeshCore and Meshtastic radios, a hill-based coverage estimate, and map layer switches to <a href="https://aprs.fi">aprs.fi</a>. It is one panel, and it works on a phone.</p>
+
+      <div class="note">
+        <strong class="lead-in">This is beta software</strong>
+        <p>Coverage is an estimate from the shape of the hills, plus a typical MeshCore radio. Trees and buildings are not included. Problems go to <a href="https://github.com/thescrawler/aprsfi-mesh-tools/issues">Issues on GitHub</a>.</p>
+      </div>
+
+      <p>Mesh Tools is not affiliated with aprs.fi, MeshCore, Meshtastic, meshmap.net, or Amazon Web Services. The source is <a href="https://github.com/thescrawler/aprsfi-mesh-tools">github.com/thescrawler/aprsfi-mesh-tools</a>. License: MIT © 2026 thescrawler.</p>
+
+      <h2>What the panel does</h2>
+      <p>It only runs on aprs.fi pages. The panel has three tabs:</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Tab</th>
+              <th>What it does</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Mesh nodes</td>
+              <td>Shows MeshCore and Meshtastic radios on the aprs.fi map, next to the normal APRS stations. MeshCore can be limited by type. Repeaters and room servers that have gone quiet get a gold ring.</td>
+            </tr>
+            <tr>
+              <td>Coverage</td>
+              <td>Shades roughly where a MeshCore repeater, or a spot you choose, can reach over the hills. Green is a strong guess, yellow is fair, and orange is weak.</td>
+            </tr>
+            <tr>
+              <td>Map layers</td>
+              <td>Hides clutter on the aprs.fi map, such as ships, planes, track lines, labels, or APRS objects by type. Also Winlink GPS reports and, if you turn it on, FT8 spots. Nothing on aprs.fi is deleted. FT8 downloads only after you tap Fetch FT8 now.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Install</h2>
+      <p>On a phone, Firefox for Android is the usual way. Copy this link, open Tampermonkey’s Utilities page, then use Import from URL.</p>
+      <div class="url-box">
+        <code id="script-url">https://raw.githubusercontent.com/thescrawler/aprsfi-mesh-tools/main/aprsfi-mesh-tools.user.js</code>
+        <button type="button" data-copy="script-url">Copy link</button>
+      </div>
+      <p>On a computer you can use the one-click link: <a href="https://github.com/thescrawler/aprsfi-mesh-tools/raw/main/aprsfi-mesh-tools.user.js">Install aprs.fi Mesh Tools</a>. Then open <a href="https://aprs.fi">aprs.fi</a>. The panel appears in the bottom-right corner.</p>
+      <p>A Greasy Fork listing is planned. It is not published yet, so this page has no Greasy Fork install link. Tampermonkey checks for updates from the GitHub repository.</p>
+      <p>The full phone and computer steps are in <a href="guides/install-mesh-tools.html">Install Mesh Tools</a>. New to the add-on? The project’s own page <a href="https://github.com/thescrawler/aprsfi-mesh-tools/blob/main/docs/What-is-Tampermonkey.md">What is Tampermonkey?</a> explains it in plain language.</p>
+
+      <h2>On a phone</h2>
+      <figure class="shot">
+        <img src="assets/mesh-tools-phone.png" width="640" height="2778" alt="Mesh Tools coverage panel on a phone, from the aprs.fi Mesh Tools guide.">
+      </figure>
+      <p>The picture is the coverage tab from the project guide. You can scroll inside the frame. Distances in Mesh Tools can be shown in miles or kilometers. Miles are the default.</p>
+
+      <h2>Where the map data comes from</h2>
+      <p>Mesh Tools only downloads public data. It does not upload information about you, and it has no account. The sites it contacts, named in the script, are:</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Source</th>
+              <th>Used for</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="https://map.meshcore.io/api/v1/nodes">map.meshcore.io</a></td>
+              <td>MeshCore nodes, and the repeater list for coverage</td>
+            </tr>
+            <tr>
+              <td><a href="https://meshmap.net/nodes.json">meshmap.net</a></td>
+              <td>Meshtastic nodes that reach the internet</td>
+            </tr>
+            <tr>
+              <td>AWS Terrain Tiles</td>
+              <td>Hill heights, only while computing coverage</td>
+            </tr>
+            <tr>
+              <td>PSKReporter</td>
+              <td>FT8 spots, and only after you tap Fetch FT8 now</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Pins, heights, and settings stay in Tampermonkey on that browser. The full note is <a href="https://github.com/thescrawler/aprsfi-mesh-tools/blob/main/docs/Privacy-and-Data-Sources.md">Privacy and data sources</a>.</p>
+
+      <h2>Project guide</h2>
+      <ul class="plain">
+        <li><a href="https://github.com/thescrawler/aprsfi-mesh-tools/blob/main/docs/Home.md">User guide home</a></li>
+        <li><a href="https://github.com/thescrawler/aprsfi-mesh-tools/blob/main/docs/Installation.md">Installation</a></li>
+        <li><a href="https://github.com/thescrawler/aprsfi-mesh-tools/blob/main/docs/Mesh-Nodes.md">Mesh nodes</a></li>
+        <li><a href="https://github.com/thescrawler/aprsfi-mesh-tools/blob/main/docs/Coverage.md">Coverage</a></li>
+        <li><a href="https://github.com/thescrawler/aprsfi-mesh-tools/blob/main/docs/Map-Layers.md">Map layers</a></li>
+        <li><a href="https://github.com/thescrawler/aprsfi-mesh-tools/blob/main/docs/Panel-and-Settings.md">Panel and settings</a></li>
+        <li><a href="https://github.com/thescrawler/aprsfi-mesh-tools/blob/main/docs/Troubleshooting.md">Troubleshooting</a></li>
+        <li><a href="https://github.com/thescrawler/aprsfi-mesh-tools/blob/main/docs/FAQ.md">FAQ</a></li>
+        <li><a href="https://github.com/thescrawler/aprsfi-mesh-tools/blob/main/docs/Changelog.md">Changelog</a></li>
+      </ul>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="footer-motto">God, Family, Preparedness</p>
+      <p>Columbia Basin Honey Badgers · Boardman and Hermiston, Oregon</p>
+      <p><a href="privacy.html">Privacy policy</a> · <a href="https://github.com/thescrawler">thescrawler on GitHub</a></p>
+    </div>
+  </footer>
+  <script src="js/copy.js"></script>
+</body>
+</html>
