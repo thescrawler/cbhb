@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Use MeshCore One Stop · C.B.H.B.</title>
-  <meta name="description" content="A short how-to for MeshCore One Stop: install when the Play test opens, connect over Bluetooth, USB, or TCP, and read voltage on My Devices.">
+  <meta name="description" content="How to install MeshCore One Stop, connect over Bluetooth, USB, or TCP, and use My Devices, telemetry, the map, and remote retune.">
   <meta name="theme-color" content="#141414">
   <link rel="icon" href="../assets/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
@@ -37,30 +37,37 @@
     <article class="prose">
       <p class="eyebrow">Guide</p>
       <h1>Use MeshCore One Stop</h1>
-      <p class="lede">MeshCore One Stop is the Android companion for your MeshCore radio. Package name com.cbhb.meshcoreonestop. These steps point at the longer notes on the app page. They do not add a download.</p>
+      <p class="lede">MeshCore One Stop is an app designed to bring all of your MeshCore needs to one location. Package name com.cbhb.meshcoreonestop. These steps are for the current sideload build, 99.1.6. Longer notes live on the <a href="../meshcore-one-stop.html">app page</a>.</p>
 
-      <h2>1. Get the app when the test is open</h2>
-      <p>Public listings on Google Play, GitHub releases, and F-Droid are not up yet. The closed test is not open yet either. When it is, start at <a href="../become-a-tester.html">Become a tester</a>. This site does not host an install file.</p>
+      <h2>1. Install the app</h2>
+      <p>Public listings on Google Play, GitHub releases, and F-Droid are not up yet. The closed Play Store test is not open yet either. For now, get the APK from a C.B.H.B. admin and install it on a 64-bit Android phone running Android 7 or later.</p>
+      <ol class="steps">
+        <li>On that phone, get the APK from a C.B.H.B. admin.</li>
+        <li>Open the file. If Android says it is not allowed to install from this source, allow installs from the browser or the Files app you used, then open the file again.</li>
+        <li>Play Protect may say it does not recognize the app, because this build is not from the Play Store. That warning is expected. If you got the file from a C.B.H.B. admin, you can choose to install anyway.</li>
+        <li>Finish the install and open the app.</li>
+      </ol>
+      <p>When the Play Store test opens, that path will be on <a href="../become-a-tester.html">Become a tester</a>.</p>
 
       <h2>2. Connect your radio</h2>
-      <p>The app talks to the radio over Bluetooth, a USB cable, or TCP (a network address). Chat only moves while that connection is up. Details: <a href="../meshcore-one-stop.html#install-and-pair">Install and pair</a>.</p>
+      <p>The app talks to the radio over Bluetooth, a USB cable, or TCP (a network address). Chat only moves while that connection is up. If Bluetooth is off, turn it on. For USB, the radio needs USB companion firmware, and the phone may ask for USB permission. Details: <a href="../meshcore-one-stop.html#install-and-pair">Install and pair</a>.</p>
 
       <h2>3. Name it on the phone, if you want</h2>
-      <p>A local display name such as “C.B.H.B. Node (1)” or “C.B.H.B. Node (Patterson)” is only on your phone. The on-air name stays as it is. Details: <a href="../meshcore-one-stop.html#my-devices">My Devices</a>.</p>
+      <p>Add the radio to My Devices if it is not already there. A local display name such as “C.B.H.B. Node (1)” or “C.B.H.B. Node (Patterson)” is only on your phone. The on-air name stays as it is. Details: <a href="../meshcore-one-stop.html#my-devices">My Devices</a>.</p>
 
       <h2>4. Read voltage when you ask</h2>
-      <p>Open My Devices, or pull down to refresh. You get voltage and the trend. The app does not keep checking in the background. The battery percent is estimated from that voltage. Details: <a href="../meshcore-one-stop.html#telemetry">Telemetry</a>.</p>
+      <p>Opening My Devices, or pulling down to refresh, shows the last saved readings. It does not radio the repeater. Open a device and tap <strong>Request status</strong> for one new reading. You get voltage and the trend. The battery percent is estimated from that voltage. The app does not keep checking in the background. You can also ping the repeater to see if it is reachable, and log in to save an admin password. Details: <a href="../meshcore-one-stop.html#telemetry">Telemetry</a>.</p>
 
       <h2>5. Save a log or settings, if you need them</h2>
-      <p>Settings export leaves out passwords and the private key. A CSV log is per device and stays on the phone until you share the file. Details: <a href="../meshcore-one-stop.html#export">Export and logs</a>.</p>
+      <p>Settings export leaves out passwords and the private key. A CSV log is per device and stays on the phone until you share the file. If a contact or a repeater has a location, you can also export those points to a GPX file. Details: <a href="../meshcore-one-stop.html#export">Export and logs</a>.</p>
 
       <h2>6. Treat the map and the messages as two paths</h2>
-      <p>Messages need the radio connection. Map layers may download public feeds (MeshCore nodes, Meshtastic nodes, FT8 when you ask, and Winlink reports from WINLINK to APWL2K) and keep the last good download on the phone. Details: <a href="../meshcore-one-stop.html#map-and-messages">Map and messages</a>.</p>
+      <p>Messages need the radio connection. They stay on the mesh and do not go through the internet. Map layers may download public feeds (MeshCore nodes, Meshtastic nodes, FT8 when you ask, and Winlink reports from WINLINK to APWL2K) and keep the last good download on the phone. Details: <a href="../meshcore-one-stop.html#map-and-messages">Map and messages</a>.</p>
 
       <h2>7. Retune only a radio you own</h2>
-      <p>The app asks you to confirm. The radio reboots. Use Save as main and Restore main to keep and return a setup. Companion retune is a separate checkbox and does not change transmit power. Details: <a href="../meshcore-one-stop.html#retune">Remote retune</a>.</p>
+      <p>On My Devices, tick one or more owned repeaters and tap <strong>Radio</strong>. Set frequency, bandwidth, spreading factor, and coding rate. Use <strong>Save as main</strong> first if this is the channel you want to come home to. <strong>Restore main</strong> fills the form back in; you still apply it the same way. The app asks you to confirm. The radio reboots and drops off until the companion is on the same settings. You can retune the companion in that same step, or match it yourself. Transmit power is not changed. This needs a saved admin password. A guest login cannot change the channel. Details: <a href="../meshcore-one-stop.html#retune">Remote retune</a>.</p>
 
-      <p>Day, Night, OLED, and Auto are the themes. The <a href="../privacy.html">privacy policy</a> says what stays on the phone.</p>
+      <p>Day, Night, OLED, and Auto are the themes. You can also create, copy, or import a theme. The <a href="../privacy.html">privacy policy</a> says what stays on the phone.</p>
     </article>
   </main>
 

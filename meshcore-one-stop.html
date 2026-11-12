@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MeshCore One Stop · C.B.H.B.</title>
-  <meta name="description" content="MeshCore One Stop is the C.B.H.B. Android companion for a MeshCore radio. Package com.cbhb.meshcoreonestop. Public store listings are not up yet.">
+  <meta name="description" content="MeshCore One Stop is an app designed to bring all of your MeshCore needs to one location.">
   <meta name="theme-color" content="#141414">
   <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -37,7 +37,7 @@
     <article class="prose">
       <p class="eyebrow">Android app</p>
       <h1>MeshCore One Stop</h1>
-      <p class="lede">MeshCore One Stop is the Android app that sits with your MeshCore radio. The phone is the screen. The radio does the talking on the mesh.</p>
+      <p class="lede">MeshCore One Stop is an app designed to bring all of your MeshCore needs to one location.</p>
 
       <dl class="facts">
         <div>
@@ -46,11 +46,11 @@
         </div>
         <div>
           <dt>Sideload build</dt>
-          <dd>99.1.2</dd>
+          <dd>99.1.6</dd>
         </div>
         <div>
           <dt>Phone</dt>
-          <dd>Android</dd>
+          <dd>Android 7 or later, 64-bit</dd>
         </div>
       </dl>
       <p>The sideload build number is the current version people may already have. This site does not host that file and does not link to a private download.</p>
@@ -65,7 +65,7 @@
       <p>The near-term way onto the app is the Play Store closed test. That test is not open yet. See <a href="become-a-tester.html">Become a tester</a>. The <a href="privacy.html">privacy policy</a> matches how the app works.</p>
 
       <h2>User guide</h2>
-      <p>Short answers for everyday use. A step list is also on <a href="guides/use-meshcore-one-stop.html">Use MeshCore One Stop</a>.</p>
+      <p>Everyday use of the current sideload build, 99.1.6. A matching step list is on <a href="guides/use-meshcore-one-stop.html">Use MeshCore One Stop</a>.</p>
       <ul class="jump">
         <li><a href="#install-and-pair">Install and pair</a></li>
         <li><a href="#my-devices">My Devices</a></li>
@@ -77,44 +77,68 @@
       </ul>
 
       <h2 id="install-and-pair">Install and pair</h2>
-      <p>Install the app from the Play test when that join link is ready. This page is not an install button.</p>
+      <p>The app is not on the Play Store yet. Get the APK from a C.B.H.B. admin and install it on a 64-bit Android phone running Android 7 or later.</p>
+      <ol class="steps">
+        <li>On that phone, get the APK from a C.B.H.B. admin.</li>
+        <li>Open the file. If Android says it is not allowed to install from this source, allow installs from the browser or the Files app you used, then open the file again. That permission is only for that one source, not for every app on the phone.</li>
+        <li>Google Play Protect may say it does not recognize the app, because this build is not from the Play Store. That warning is expected. If you are sure you got the file from a C.B.H.B. admin, you can choose to install anyway. If you are not sure, do not install it.</li>
+        <li>Finish the install and open MeshCore One Stop.</li>
+      </ol>
       <p>After it is installed, the app connects to your own MeshCore radio in one of three ways:</p>
       <ul class="plain">
-        <li><strong>Bluetooth.</strong> Wireless, the way a phone connects to a speaker or a headset.</li>
-        <li><strong>USB.</strong> A cable between the phone and the radio.</li>
+        <li><strong>Bluetooth.</strong> Wireless, the way a phone connects to a speaker or a headset. If Bluetooth is off, the app will tell you. Android may ask for nearby-device or location permission so it can scan for the radio.</li>
+        <li><strong>USB.</strong> A cable between the phone and the radio. The radio needs USB companion firmware. If the phone asks for USB permission, allow it. You may need a USB-OTG adapter, depending on the phone.</li>
         <li><strong>TCP.</strong> A network address, if the radio is already reachable that way.</li>
       </ul>
       <p>Messages go through that radio onto the mesh. If the phone is not connected to the radio, the app cannot send chat for you.</p>
 
       <h2 id="my-devices">My Devices</h2>
-      <p>You can give a radio a display name that lives only on your phone. Examples: <strong>C.B.H.B. Node (1)</strong> or <strong>C.B.H.B. Node (Patterson)</strong>.</p>
+      <p>My Devices is your list of radios on this phone. You can add a radio to the list or remove it. You can give a radio a display name that lives only on your phone. Examples: <strong>C.B.H.B. Node (1)</strong> or <strong>C.B.H.B. Node (Patterson)</strong>.</p>
       <p>That name helps you tell radios apart in the app. It does not change the name that goes out over the air.</p>
+      <p>Opening the list, or pulling down to refresh, does not radio the repeater. The list shows the last saved readings. To get a new reading, open a device and tap <strong>Request status</strong>. That sends one status request.</p>
+      <p>From a device you can also:</p>
+      <ul class="plain">
+        <li><strong>Ping repeater.</strong> Check that the radio is reachable, and see a distance and signal reading when the ping gets through.</li>
+        <li><strong>Log in.</strong> Use the admin password, and save it on the phone if you want the app to keep it. A guest login cannot change the channel. If no password is saved, the app will ask you to log in from Contacts or My Devices and save it.</li>
+      </ul>
+      <p>These are the same kinds of actions that are on Contacts. Status and ping do not require a login. Changing radio settings does.</p>
 
       <h2 id="telemetry">Telemetry</h2>
-      <p>Open the My Devices tab, or pull down to refresh, and the app asks the radio for a reading. You see voltage, and whether that voltage is trending up or down.</p>
-      <p>The app does not keep asking in the background. It reads when you open that tab or when you refresh it yourself.</p>
-      <p>The battery percent is an estimate from the voltage. It is not a separate battery gauge.</p>
+      <p>A reading is taken when you open a device and tap <strong>Request status</strong>. The list itself does not ask the radio, and the app does not keep asking in the background.</p>
+      <p>You see voltage, and whether that voltage is trending up or down since the last saved reading. The battery percent is an estimate from the voltage. It is not a separate battery gauge.</p>
+      <p>Each reading can also record the radio settings that came back with it, including frequency, bandwidth, spreading factor, and coding rate. Those readings stay in the per-device log on the phone.</p>
+      <p>If you have just added a device and have not requested status yet, the app will say there are no pulls yet, and tell you to tap Request status for one reading.</p>
 
       <h2 id="export">Export and logs</h2>
       <p>You can export settings. That export leaves out passwords and the private key.</p>
       <p>You can also save a CSV log for each device. The log stays on the phone unless you choose to share the file yourself.</p>
+      <p>If a contact or a repeater has a location, you can export those points to a GPX file, for use in a map program. That file is also made on the phone. Exporting it does not upload it to C.B.H.B.</p>
 
       <h2 id="map-and-messages">Map and messages</h2>
-      <p>Chat and other off-grid messages travel only while the phone is connected to your radio by Bluetooth, USB, or TCP.</p>
-      <p>The map is a different path. Map and status layers can download public feeds: MeshCore nodes, Meshtastic nodes, FT8 when you ask for it, and Winlink reports sent from WINLINK to APWL2K. The phone keeps the last good download so you can look at it again. Those feeds come from the internet. They are not the same path as your mesh messages.</p>
+      <p>Chat and other off-grid messages travel only while the phone is connected to your radio by Bluetooth, USB, or TCP. Mesh messages stay on the radio. They do not go through the internet.</p>
+      <p>The map is a different path. Map and status layers can download public feeds:</p>
+      <ul class="plain">
+        <li>MeshCore nodes</li>
+        <li>Meshtastic nodes</li>
+        <li>FT8, when you ask for it (on demand, not by itself)</li>
+        <li>Winlink reports sent from WINLINK to APWL2K</li>
+      </ul>
+      <p>The phone keeps the last good download so you can look at it again. Those feeds come from the internet. They are not the same path as your mesh messages.</p>
 
       <h2 id="retune">Remote retune</h2>
-      <p>If you own a repeater, the app can retune that radio from the phone.</p>
+      <p>If you own a repeater, the app can retune that radio from the phone. On My Devices, tick one or more owned repeaters and tap <strong>Radio</strong>. Set frequency in MHz, bandwidth, spreading factor, and coding rate.</p>
       <ul class="plain">
-        <li>It asks you to confirm before it changes the radio.</li>
-        <li>The radio reboots. Expect it to drop offline for a moment.</li>
-        <li><strong>Save as main</strong> stores that setup as the one you can return to.</li>
-        <li><strong>Restore main</strong> puts the saved setup back.</li>
+        <li><strong>Save as main</strong> first if this is the channel you want to come home to. That stores the setup as the one you can return to.</li>
+        <li><strong>Restore main</strong> fills the form back in with that saved setup. You still apply it the same way.</li>
+        <li>Apply asks you to confirm before it changes the radio.</li>
+        <li>The repeater reboots onto the new settings. Expect it to drop offline for a moment. It drops off this companion until the companion is on the same frequency, bandwidth, spreading factor, and coding rate.</li>
+        <li>You can let the app retune the companion in that same step, or leave the companion where it is and match it yourself from the radio settings. Transmit power is not changed.</li>
+        <li>This needs the admin password saved from a previous login. A guest login cannot change the channel.</li>
       </ul>
-      <p>Retuning a companion radio is a separate checkbox. Companion retune does not change transmit power.</p>
+      <p>Save a main preset first if you need a way back. The repeater drops until this companion matches.</p>
 
       <h2 id="themes">Themes</h2>
-      <p>The app has four looks: <strong>Day</strong>, <strong>Night</strong>, <strong>OLED</strong>, and <strong>Auto</strong>.</p>
+      <p>The app has four looks: <strong>Day</strong>, <strong>Night</strong>, <strong>OLED</strong>, and <strong>Auto</strong>. You can also create your own theme, give it a name, and copy or import a theme code. A dark background makes a dark theme. These choices are only how the app looks on your phone. They do not change the radio.</p>
     </article>
   </main>
 
