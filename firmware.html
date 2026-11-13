@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Firmware · C.B.H.B.</title>
-  <meta name="description" content="Test firmware for C.B.H.B. MeshCore radios. Current files are for the Seeed XIAO nRF52840 + Wio-SX1262: repeater v1.18.0-jp.wdt2 and companion+repeat v1.18.0-jp.crep1. RAK4631 WisBlock (RAK19003 base) and Heltec T096 builds are coming.">
+  <meta name="description" content="Test firmware for C.B.H.B. MeshCore radios on the Seeed XIAO nRF52840 + Wio-SX1262, RAK4631 WisBlock (RAK19003 base), and Heltec T096: repeater v1.18.0-jp.wdt2, companion+repeat v1.18.0-jp.crep1, and companion+room v1.18.0-jp.croom1.">
   <meta name="theme-color" content="#141414">
   <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -38,16 +38,21 @@
     <article class="prose">
       <p class="eyebrow">MeshCore radios</p>
       <h1>Firmware</h1>
-      <p class="lede">These images are C.B.H.B. builds on top of MeshCore v1.18.0. Use the files on this page, not a copy sent by someone else.</p>
-      <p><strong>Supported boards.</strong> Seeed XIAO nRF52840 + Wio-SX1262 (available now). RAK4631 WisBlock (RAK19003 base) and Heltec T096 (builds coming). Each file is built for one of those boards, and is labeled with that board’s name.</p>
+      <p class="lede">These images are C.B.H.B. builds on top of MeshCore v1.18.0. Use the file named for your board, not a copy sent by someone else, and not a file built for a different board.</p>
+      <p><strong>Supported boards.</strong> Seeed XIAO nRF52840 + Wio-SX1262, RAK4631 WisBlock (RAK19003 base), and Heltec T096. Each file is built for one of those boards, and is labeled with that board’s name.</p>
       <div class="note">
         <p><strong class="lead-in">Test builds</strong></p>
-        <p>Repeater <strong>v1.18.0-jp.wdt2</strong> and companion+repeat <strong>v1.18.0-jp.crep1</strong> for the Seeed XIAO nRF52840 + Wio-SX1262 have not been tested on radio hardware yet. Bench-test on a spare Seeed XIAO nRF52840 + Wio-SX1262 first. What changed is on the <a href="release-notes.html">release notes</a> page. The matching Android app is <a href="meshcore-one-stop.html">One Stop 99.1.7</a>.</p>
+        <p>Repeater <strong>v1.18.0-jp.wdt2</strong>, companion+repeat <strong>v1.18.0-jp.crep1</strong>, and companion+room <strong>v1.18.0-jp.croom1</strong> have not been tested on radio hardware yet. Bench-test on a spare board of the same type first. What changed is on the <a href="release-notes.html">release notes</a> page. The matching Android app is <a href="meshcore-one-stop.html">One Stop 99.1.7</a>.</p>
       </div>
 
       <ul class="jump">
-        <li><a href="#jp-wdt2">Repeater jp.wdt2, Seeed XIAO nRF52840 + Wio-SX1262</a></li>
+        <li><a href="#jp-croom1">Companion+room jp.croom1, RAK4631 WisBlock</a></li>
+        <li><a href="#jp-crep1-t096">Companion jp.crep1, Heltec T096</a></li>
+        <li><a href="#jp-crep1-rak">Companion jp.crep1, RAK4631 WisBlock</a></li>
         <li><a href="#jp-crep1-xiao">Companion jp.crep1, Seeed XIAO nRF52840 + Wio-SX1262</a></li>
+        <li><a href="#jp-wdt2-t096">Repeater jp.wdt2, Heltec T096</a></li>
+        <li><a href="#jp-wdt2-rak">Repeater jp.wdt2, RAK4631 WisBlock</a></li>
+        <li><a href="#jp-wdt2">Repeater jp.wdt2, Seeed XIAO nRF52840 + Wio-SX1262</a></li>
         <li><a href="#previous-versions">Previous versions</a></li>
         <li><a href="#flash">Flash notes</a></li>
         <li><a href="#defaults">Defaults</a></li>
@@ -55,38 +60,94 @@
         <li><a href="#build-guides">Build guides</a></li>
       </ul>
 
-      <h2 id="jp-wdt2">Repeater v1.18.0-jp.wdt2, Seeed XIAO nRF52840 + Wio-SX1262</h2>
-      <p>For the Seeed XIAO nRF52840 + Wio-SX1262. This is a repeater image, with a data logger and optional INA3221 solar readings.</p>
+      <h2 id="jp-croom1">Companion+room v1.18.0-jp.croom1, RAK4631 WisBlock</h2>
+      <p>For the RAK4631 WisBlock (RAK19003 base). This is a BLE companion with a room server on a second identity. The room is off until you turn it on. This is a test build and has not been tested on radio hardware yet.</p>
       <p class="actions">
-        <a class="btn" href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.wdt2/xiao_nrf52_repeater-v1.18.0-jp.wdt2.uf2">Download jp.wdt2 UF2</a>
+        <a class="btn" href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.croom1/rak4631_companion_room_ble-v1.18.0-jp.croom1.uf2">Download jp.croom1 UF2, RAK4631 WisBlock</a>
       </p>
       <dl class="facts">
         <div>
           <dt>Board</dt>
-          <dd>Seeed XIAO nRF52840 + Wio-SX1262</dd>
+          <dd>RAK4631 WisBlock (RAK19003 base)</dd>
         </div>
         <div>
           <dt>Version</dt>
-          <dd>v1.18.0-jp.wdt2</dd>
+          <dd>v1.18.0-jp.croom1 · test build</dd>
         </div>
         <div>
           <dt>File</dt>
-          <dd>xiao_nrf52_repeater-v1.18.0-jp.wdt2.uf2</dd>
+          <dd>rak4631_companion_room_ble-v1.18.0-jp.croom1.uf2</dd>
         </div>
         <div>
           <dt>Size</dt>
-          <dd>747,008 bytes (about 730 KB)</dd>
+          <dd>955,392 bytes (about 933 KB)</dd>
         </div>
         <div>
           <dt>SHA-256</dt>
-          <dd class="sha">a2a67d46c48040590d2851e04e11fdf05ce887986cb40fdfeaeb92b82ceb0b4f</dd>
+          <dd class="sha">cceb851f62da814a4ea834413c0be617d0cea6fcb164684b7313fb2f0799cb26</dd>
+        </div>
+      </dl>
+
+      <h2 id="jp-crep1-t096">Companion+repeat v1.18.0-jp.crep1, Heltec T096</h2>
+      <p>For the Heltec T096. This is a BLE companion that can also forward flood traffic when repeat is turned on. This is a test build and has not been tested on radio hardware yet.</p>
+      <p class="actions">
+        <a class="btn" href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.crep1/heltec_t096_companion_repeat_ble-v1.18.0-jp.crep1.uf2">Download jp.crep1 UF2, Heltec T096</a>
+      </p>
+      <dl class="facts">
+        <div>
+          <dt>Board</dt>
+          <dd>Heltec T096</dd>
+        </div>
+        <div>
+          <dt>Version</dt>
+          <dd>v1.18.0-jp.crep1 · test build</dd>
+        </div>
+        <div>
+          <dt>File</dt>
+          <dd>heltec_t096_companion_repeat_ble-v1.18.0-jp.crep1.uf2</dd>
+        </div>
+        <div>
+          <dt>Size</dt>
+          <dd>862,720 bytes (about 843 KB)</dd>
+        </div>
+        <div>
+          <dt>SHA-256</dt>
+          <dd class="sha">d847b85196a5f70369ec02926d5f4ecf503c8978999baa6399c3ca32cd6f7fe6</dd>
+        </div>
+      </dl>
+
+      <h2 id="jp-crep1-rak">Companion+repeat v1.18.0-jp.crep1, RAK4631 WisBlock</h2>
+      <p>For the RAK4631 WisBlock (RAK19003 base). This is a BLE companion that can also forward flood traffic when repeat is turned on. This is a test build and has not been tested on radio hardware yet.</p>
+      <p class="actions">
+        <a class="btn" href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.crep1/rak4631_companion_repeat_ble-v1.18.0-jp.crep1.uf2">Download jp.crep1 UF2, RAK4631 WisBlock</a>
+      </p>
+      <dl class="facts">
+        <div>
+          <dt>Board</dt>
+          <dd>RAK4631 WisBlock (RAK19003 base)</dd>
+        </div>
+        <div>
+          <dt>Version</dt>
+          <dd>v1.18.0-jp.crep1 · test build</dd>
+        </div>
+        <div>
+          <dt>File</dt>
+          <dd>rak4631_companion_repeat_ble-v1.18.0-jp.crep1.uf2</dd>
+        </div>
+        <div>
+          <dt>Size</dt>
+          <dd>935,424 bytes (about 914 KB)</dd>
+        </div>
+        <div>
+          <dt>SHA-256</dt>
+          <dd class="sha">e9010bbf8fb6e1967bff8d0187ce82d22dd14779df9b7f3688a4e9029f459809</dd>
         </div>
       </dl>
 
       <h2 id="jp-crep1-xiao">Companion+repeat v1.18.0-jp.crep1, Seeed XIAO nRF52840 + Wio-SX1262</h2>
-      <p>For the Seeed XIAO nRF52840 + Wio-SX1262. This is a BLE companion that can also forward flood traffic when repeat is turned on.</p>
+      <p>For the Seeed XIAO nRF52840 + Wio-SX1262. This is a BLE companion that can also forward flood traffic when repeat is turned on. This is a test build and has not been tested on radio hardware yet.</p>
       <p class="actions">
-        <a class="btn" href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.crep1/xiao_nrf52_companion_repeat_ble-v1.18.0-jp.crep1.uf2">Download jp.crep1 UF2</a>
+        <a class="btn" href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.crep1/xiao_nrf52_companion_repeat_ble-v1.18.0-jp.crep1.uf2">Download jp.crep1 UF2, Seeed XIAO nRF52840 + Wio-SX1262</a>
       </p>
       <dl class="facts">
         <div>
@@ -95,7 +156,7 @@
         </div>
         <div>
           <dt>Version</dt>
-          <dd>v1.18.0-jp.crep1</dd>
+          <dd>v1.18.0-jp.crep1 · test build</dd>
         </div>
         <div>
           <dt>File</dt>
@@ -111,13 +172,97 @@
         </div>
       </dl>
 
+      <h2 id="jp-wdt2-t096">Repeater v1.18.0-jp.wdt2, Heltec T096</h2>
+      <p>For the Heltec T096. This is a repeater image, with a data logger and optional INA3221 solar readings. The compiled node name is ORD Water Tower. This is a test build and has not been tested on radio hardware yet.</p>
+      <p class="actions">
+        <a class="btn" href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.wdt2/heltec_t096_repeater-v1.18.0-jp.wdt2.uf2">Download jp.wdt2 UF2, Heltec T096</a>
+      </p>
+      <dl class="facts">
+        <div>
+          <dt>Board</dt>
+          <dd>Heltec T096</dd>
+        </div>
+        <div>
+          <dt>Version</dt>
+          <dd>v1.18.0-jp.wdt2 · test build</dd>
+        </div>
+        <div>
+          <dt>File</dt>
+          <dd>heltec_t096_repeater-v1.18.0-jp.wdt2.uf2</dd>
+        </div>
+        <div>
+          <dt>Size</dt>
+          <dd>838,144 bytes (about 819 KB)</dd>
+        </div>
+        <div>
+          <dt>SHA-256</dt>
+          <dd class="sha">b86f9087dcf7ccd011e153d7bc781df9928af5eb4b7e9d53125fc3cd5e62babf</dd>
+        </div>
+      </dl>
+
+      <h2 id="jp-wdt2-rak">Repeater v1.18.0-jp.wdt2, RAK4631 WisBlock</h2>
+      <p>For the RAK4631 WisBlock (RAK19003 base). This is a repeater image, with a data logger and optional INA3221 solar readings. This is a test build and has not been tested on radio hardware yet.</p>
+      <p class="actions">
+        <a class="btn" href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.wdt2/rak4631_repeater-v1.18.0-jp.wdt2.uf2">Download jp.wdt2 UF2, RAK4631 WisBlock</a>
+      </p>
+      <dl class="facts">
+        <div>
+          <dt>Board</dt>
+          <dd>RAK4631 WisBlock (RAK19003 base)</dd>
+        </div>
+        <div>
+          <dt>Version</dt>
+          <dd>v1.18.0-jp.wdt2 · test build</dd>
+        </div>
+        <div>
+          <dt>File</dt>
+          <dd>rak4631_repeater-v1.18.0-jp.wdt2.uf2</dd>
+        </div>
+        <div>
+          <dt>Size</dt>
+          <dd>908,800 bytes (about 888 KB)</dd>
+        </div>
+        <div>
+          <dt>SHA-256</dt>
+          <dd class="sha">a9457388e53581abd4c0c985cb9caeb927c29b61574bea04d469100c8b617479</dd>
+        </div>
+      </dl>
+
+      <h2 id="jp-wdt2">Repeater v1.18.0-jp.wdt2, Seeed XIAO nRF52840 + Wio-SX1262</h2>
+      <p>For the Seeed XIAO nRF52840 + Wio-SX1262. This is a repeater image, with a data logger and optional INA3221 solar readings. This is a test build and has not been tested on radio hardware yet.</p>
+      <p class="actions">
+        <a class="btn" href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.wdt2/xiao_nrf52_repeater-v1.18.0-jp.wdt2.uf2">Download jp.wdt2 UF2, Seeed XIAO nRF52840 + Wio-SX1262</a>
+      </p>
+      <dl class="facts">
+        <div>
+          <dt>Board</dt>
+          <dd>Seeed XIAO nRF52840 + Wio-SX1262</dd>
+        </div>
+        <div>
+          <dt>Version</dt>
+          <dd>v1.18.0-jp.wdt2 · test build</dd>
+        </div>
+        <div>
+          <dt>File</dt>
+          <dd>xiao_nrf52_repeater-v1.18.0-jp.wdt2.uf2</dd>
+        </div>
+        <div>
+          <dt>Size</dt>
+          <dd>747,008 bytes (about 730 KB)</dd>
+        </div>
+        <div>
+          <dt>SHA-256</dt>
+          <dd class="sha">a2a67d46c48040590d2851e04e11fdf05ce887986cb40fdfeaeb92b82ceb0b4f</dd>
+        </div>
+      </dl>
+
 
       <h2 id="previous-versions">Previous versions</h2>
-      <p>The current firmware plus earlier C.B.H.B. builds are kept for rollback. For the Seeed XIAO nRF52840 + Wio-SX1262 repeater, the previous image is v1.18.0-jp.wdt. jp.crep1 for the Seeed XIAO nRF52840 + Wio-SX1262 is the first companion+repeat build we have published, so there is no earlier crep1 image to roll back to.</p>
+      <p>The current firmware plus earlier C.B.H.B. builds are kept for rollback. For the Seeed XIAO nRF52840 + Wio-SX1262 repeater, the previous image is v1.18.0-jp.wdt. jp.wdt2 and jp.crep1 for the RAK4631 WisBlock and the Heltec T096, and jp.croom1 for the RAK4631 WisBlock, are the first published images for those boards, so there is no earlier file to roll back to on those boards.</p>
       <h3>Repeater v1.18.0-jp.wdt</h3>
       <p>For the Seeed XIAO nRF52840 + Wio-SX1262. This is the earlier repeater image, with the watchdog and Bluetooth CLI, before the data logger and solar sampling in jp.wdt2. Flash it the same way as the current Seeed XIAO nRF52840 + Wio-SX1262 UF2.</p>
       <p class="actions">
-        <a class="btn secondary" href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.wdt/xiao_nrf52_repeater-v1.18.0-jp.wdt.uf2">Download jp.wdt UF2</a>
+        <a class="btn secondary" href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.wdt/xiao_nrf52_repeater-v1.18.0-jp.wdt.uf2">Download jp.wdt UF2, Seeed XIAO nRF52840 + Wio-SX1262</a>
       </p>
       <dl class="facts">
         <div>
@@ -144,18 +289,35 @@
       <p>What changed in each build is on the <a href="release-notes.html">release notes</a> page. All firmware files are also on this project’s <a href="https://github.com/thescrawler/cbhb/releases">cbhb releases</a> page.</p>
 
       <h2 id="flash">Flash notes</h2>
+      <p>On every supported board, double-tap the reset button so the board shows up as a drive, then copy the matching <code>.uf2</code> file onto it. The filesystem (identity and prefs) is not erased by a UF2 update.</p>
       <ul class="plain">
-        <li><strong>Seeed XIAO nRF52840 + Wio-SX1262 (UF2).</strong> Double-tap the reset button on the Seeed XIAO nRF52840 so it shows up as a drive, then copy the <code>.uf2</code> file onto it. The Seeed XIAO nRF52840 filesystem is not erased.</li>
+        <li><strong>Seeed XIAO nRF52840 + Wio-SX1262 (UF2).</strong> Double-tap reset on the Seeed XIAO nRF52840, then copy the Seeed XIAO nRF52840 + Wio-SX1262 file.</li>
+        <li><strong>RAK4631 WisBlock (RAK19003 base) (UF2).</strong> Double-tap reset on the RAK4631 WisBlock, then copy the RAK4631 WisBlock file.</li>
+        <li><strong>Heltec T096 (UF2).</strong> Double-tap reset on the Heltec T096, then copy the Heltec T096 file.</li>
       </ul>
-      <p>When RAK4631 WisBlock (RAK19003 base) and Heltec T096 builds are posted, each one will have its own file and flash steps, named for that board.</p>
 
       <h2 id="defaults">Defaults</h2>
+      <p>The compiled default frequency on all of these images is 869.618 MHz, until you change it in the app or with <code>set freq</code>.</p>
+      <h3>Companion+room, jp.croom1, RAK4631 WisBlock</h3>
+      <ul class="plain">
+        <li>The companion identity and the room identity are separate. Clients see the room as its own node.</li>
+        <li>The room is off until you turn it on with <code>set room on</code>. Turn it off with <code>set room off</code>.</li>
+        <li>The room name starts as <code>Room</code>. The room holds 128 posts.</li>
+        <li>The room admin password starts as <code>password</code>. Change it before you use the room.</li>
+        <li>The guest password starts blank.</li>
+        <li>Repeat is off until you turn it on.</li>
+        <li>Logger is on, every 15 minutes. Solar is set to auto.</li>
+        <li>Bluetooth pairing PIN is <code>123456</code>.</li>
+        <li>TX is capped at 22 dBm into the SX1262. There is no external PA on the RAK4631 WisBlock.</li>
+      </ul>
       <h3>Companion+repeat, jp.crep1</h3>
       <ul class="plain">
         <li>Repeat is off until you turn it on, or until One Stop’s Camp Mode switch turns it on.</li>
         <li>Logger is on, every 15 minutes, 256 records.</li>
         <li>Solar is set to auto. If no INA3221 is present, solar sampling stays quiet.</li>
         <li>Bluetooth pairing PIN is <code>123456</code>. On the Seeed XIAO nRF52840 + Wio-SX1262 the name is <code>MeshCore-</code> plus the node name.</li>
+        <li>On the Heltec T096, <code>set tx</code> is the SX1262 value, from -9 to 22. 22 into the onboard PA is about 28 dBm at the antenna. The compiled default is 9, about 22 dBm at the antenna. GPS is compiled out, and the receiver stays off.</li>
+        <li>On the RAK4631 WisBlock, TX is capped at 22 dBm into the SX1262. There is no external PA on that board.</li>
       </ul>
       <h3>Repeater, jp.wdt2</h3>
       <ul class="plain">
@@ -163,14 +325,18 @@
         <li>Logger is on, every 15 minutes, 256 records.</li>
         <li>Solar is set to auto and uses an INA3221 when one is found. If the chip does not answer, those fields stay at zero for that sample.</li>
         <li>USB serial is 115200. Bluetooth is a Nordic UART named <code>RPT-</code> plus the node name. Pairing PIN is <code>123456</code>. After you pair, log in with your admin password before using the commands below.</li>
+        <li>On the Heltec T096, the compiled node name is ORD Water Tower. <code>set tx</code> is the SX1262 value, from -9 to 22. 22 into the onboard PA is about 28 dBm at the antenna. The compiled default is 9, about 22 dBm at the antenna. GPS is compiled out, and the receiver stays off.</li>
+        <li>On the RAK4631 WisBlock, TX is capped at 22 dBm into the SX1262. There is no external PA on that board.</li>
       </ul>
 
       <h2 id="commands">Commands</h2>
-      <p>These text commands work on both jp.wdt2 and jp.crep1 for the Seeed XIAO nRF52840 + Wio-SX1262. On the companion, send them over the companion link. On the repeater, use USB serial or the Bluetooth CLI after login.</p>
+      <p>These text commands work on jp.wdt2 and jp.crep1, and on the companion side of jp.croom1. On a companion, send them over the companion link. On a repeater, use USB serial or the Bluetooth CLI after login. Frequency and TX also follow the companion or repeater commands for those settings.</p>
       <pre class="commands">ver
 get repeat
 set repeat on
 set repeat off
+set freq 869.618
+set tx 9
 get logger
 set logger on
 set logger off
@@ -188,12 +354,22 @@ power
 stats-core
 stats-radio
 stats-packets</pre>
-      <p><code>logger page 0</code> is the newest record. <code>set logger.interval</code> is in minutes.</p>
+      <p><code>logger page 0</code> is the newest record. <code>set logger.interval</code> is in minutes. <code>set tx</code> is the SX1262 value, not the antenna power. On the Heltec T096 it must stay in the range -9 to 22. On the RAK4631 WisBlock it is capped at 22.</p>
+      <p>These extra commands are for jp.croom1 on the RAK4631 WisBlock:</p>
+      <pre class="commands">get room
+set room on
+set room off
+set room.name My Room
+set room.guest
+set room.guest hello
+set room.password secret
+room.post hello from the desk</pre>
+      <p>Change the room admin password from the default <code>password</code> before you use the room.</p>
 
       <h2 id="build-guides">Build guides</h2>
       <ul class="plain">
         <li><a href="guides/build-solar-logging-node.html">Build a Solar Logging Node</a> — parts, drawings, and wiring for jp.wdt2 on the Seeed XIAO nRF52840 + Wio-SX1262 with INA3221 solar logging.</li>
-        <li><a href="guides/set-up-camp-mode.html">Set up Camp Mode</a> — flash jp.crep1 for the Seeed XIAO nRF52840 + Wio-SX1262 and use the Repeat switch in One Stop 99.1.7.</li>
+        <li><a href="guides/set-up-camp-mode.html">Set up Camp Mode</a> — flash jp.crep1 and use the Repeat switch in One Stop 99.1.7. Use the jp.crep1 file named for your board.</li>
       </ul>
     </article>
   </main>

@@ -51,16 +51,85 @@
         <p><a href="https://github.com/thescrawler/cbhb/releases/download/onestop-v99.1.7/MeshCore-One-Stop-99.1.7.apk">Download One Stop 99.1.7</a> · <a href="meshcore-one-stop.html#previous-versions">Previous versions</a></p>
       </section>
 
+      <section class="release" id="firmware-jp-croom1">
+        <h2>Firmware v1.18.0-jp.croom1, RAK4631 WisBlock</h2>
+        <p class="meta">November 13, 2026 · companion+room · RAK4631 WisBlock · test build</p>
+        <p>Based on upstream MeshCore v1.18.0. This file is only for the RAK4631 WisBlock (RAK19003 base). It has not been tested on radio hardware yet.</p>
+        <ul class="plain">
+          <li>BLE companion with a room server on a second identity. The room is off by default; turn it on with <code>set room on</code>.</li>
+          <li>The room admin password starts as <code>password</code>. Change it before you use the room. The room holds 128 posts.</li>
+          <li>Repeat is off until you turn it on. Logger is on, every 15 minutes. Solar is set to auto.</li>
+          <li>TX is capped at 22 dBm into the SX1262. There is no external PA on this board. The compiled default frequency is 869.618 MHz, until you change it in the app or with <code>set freq</code>.</li>
+        </ul>
+        <p>File: rak4631_companion_room_ble-v1.18.0-jp.croom1.uf2<br>SHA-256: cceb851f62da814a4ea834413c0be617d0cea6fcb164684b7313fb2f0799cb26</p>
+        <p><a href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.croom1/rak4631_companion_room_ble-v1.18.0-jp.croom1.uf2">Download jp.croom1 for RAK4631 WisBlock</a></p>
+      </section>
+
+      <section class="release" id="firmware-jp-crep1-t096">
+        <h2>Firmware v1.18.0-jp.crep1, Heltec T096</h2>
+        <p class="meta">November 13, 2026 · companion+repeat · Heltec T096 · test build</p>
+        <p>Based on upstream MeshCore v1.18.0, built with the upstream heltec_t096 target. This file is only for the Heltec T096. It has not been tested on radio hardware yet.</p>
+        <ul class="plain">
+          <li>BLE companion that can also forward flood traffic, using MeshCore’s client-repeat path and repeater hop limits. Repeat is off by default.</li>
+          <li>Data logger on, every 15 minutes, 256 records. Solar set to auto, and quiet when no INA3221 is present.</li>
+          <li><code>set tx</code> is the SX1262 value, from -9 to 22. 22 into the onboard PA is about 28 dBm at the antenna. The compiled default is 9, about 22 dBm at the antenna.</li>
+          <li>GPS is compiled out, and the receiver stays off. The compiled default frequency is 869.618 MHz, until you change it in the app or with <code>set freq</code>. Bluetooth pairing PIN is 123456.</li>
+        </ul>
+        <p>File: heltec_t096_companion_repeat_ble-v1.18.0-jp.crep1.uf2<br>SHA-256: d847b85196a5f70369ec02926d5f4ecf503c8978999baa6399c3ca32cd6f7fe6</p>
+        <p><a href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.crep1/heltec_t096_companion_repeat_ble-v1.18.0-jp.crep1.uf2">Download jp.crep1 for Heltec T096</a></p>
+      </section>
+
+      <section class="release" id="firmware-jp-crep1-rak">
+        <h2>Firmware v1.18.0-jp.crep1, RAK4631 WisBlock</h2>
+        <p class="meta">November 13, 2026 · companion+repeat · RAK4631 WisBlock · test build</p>
+        <p>Based on upstream MeshCore v1.18.0. This file is only for the RAK4631 WisBlock (RAK19003 base). It has not been tested on radio hardware yet.</p>
+        <ul class="plain">
+          <li>BLE companion that can also forward flood traffic. Repeat is off by default.</li>
+          <li>Data logger on, every 15 minutes, 256 records. Solar set to auto, and quiet when no INA3221 is present.</li>
+          <li>TX is capped at 22 dBm into the SX1262. There is no external PA on this board.</li>
+          <li>The compiled default frequency is 869.618 MHz, until you change it in the app or with <code>set freq</code>. Bluetooth pairing PIN is 123456.</li>
+        </ul>
+        <p>File: rak4631_companion_repeat_ble-v1.18.0-jp.crep1.uf2<br>SHA-256: e9010bbf8fb6e1967bff8d0187ce82d22dd14779df9b7f3688a4e9029f459809</p>
+        <p><a href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.crep1/rak4631_companion_repeat_ble-v1.18.0-jp.crep1.uf2">Download jp.crep1 for RAK4631 WisBlock</a></p>
+      </section>
+
+      <section class="release" id="firmware-jp-wdt2-t096">
+        <h2>Firmware v1.18.0-jp.wdt2, Heltec T096</h2>
+        <p class="meta">November 13, 2026 · repeater · Heltec T096 · test build</p>
+        <p>Based on upstream MeshCore v1.18.0, built with the upstream heltec_t096 target. This file is only for the Heltec T096. It has not been tested on radio hardware yet. The compiled node name is ORD Water Tower.</p>
+        <ul class="plain">
+          <li>Repeater with a 45-second, sleep-running hardware watchdog, a data logger (on, every 15 minutes, 256 records), and INA3221 solar sampling, default auto.</li>
+          <li><code>set tx</code> is the SX1262 value, from -9 to 22. 22 into the onboard PA is about 28 dBm at the antenna. The compiled default is 9, about 22 dBm at the antenna.</li>
+          <li>GPS is compiled out, and the receiver stays off. The compiled default frequency is 869.618 MHz, until you change it in the app or with <code>set freq</code>.</li>
+        </ul>
+        <p>File: heltec_t096_repeater-v1.18.0-jp.wdt2.uf2<br>SHA-256: b86f9087dcf7ccd011e153d7bc781df9928af5eb4b7e9d53125fc3cd5e62babf</p>
+        <p><a href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.wdt2/heltec_t096_repeater-v1.18.0-jp.wdt2.uf2">Download jp.wdt2 for Heltec T096</a></p>
+      </section>
+
+      <section class="release" id="firmware-jp-wdt2-rak">
+        <h2>Firmware v1.18.0-jp.wdt2, RAK4631 WisBlock</h2>
+        <p class="meta">November 13, 2026 · repeater · RAK4631 WisBlock · test build</p>
+        <p>Based on upstream MeshCore v1.18.0. This file is only for the RAK4631 WisBlock (RAK19003 base). It has not been tested on radio hardware yet.</p>
+        <ul class="plain">
+          <li>Repeater with a 45-second, sleep-running hardware watchdog, a data logger (on, every 15 minutes, 256 records), and INA3221 solar sampling, default auto.</li>
+          <li>TX is capped at 22 dBm into the SX1262. There is no external PA on this board.</li>
+          <li>The compiled default frequency is 869.618 MHz, until you change it in the app or with <code>set freq</code>.</li>
+        </ul>
+        <p>File: rak4631_repeater-v1.18.0-jp.wdt2.uf2<br>SHA-256: a9457388e53581abd4c0c985cb9caeb927c29b61574bea04d469100c8b617479</p>
+        <p><a href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.wdt2/rak4631_repeater-v1.18.0-jp.wdt2.uf2">Download jp.wdt2 for RAK4631 WisBlock</a></p>
+      </section>
+
       <section class="release" id="firmware-jp-crep1">
         <h2>Firmware v1.18.0-jp.crep1, Seeed XIAO nRF52840 + Wio-SX1262</h2>
         <p class="meta">November 13, 2026 · companion+repeat · Seeed XIAO nRF52840 + Wio-SX1262 · test build</p>
-        <p>Based on upstream MeshCore v1.18.0. This file is only for the Seeed XIAO nRF52840 + Wio-SX1262. It has not been tested on radio hardware yet. RAK4631 WisBlock (RAK19003 base) and Heltec T096 builds are coming.</p>
+        <p>Based on upstream MeshCore v1.18.0. This file is only for the Seeed XIAO nRF52840 + Wio-SX1262. It has not been tested on radio hardware yet.</p>
         <ul class="plain">
           <li>BLE companion that can also forward flood traffic, using MeshCore’s client-repeat path and repeater hop limits.</li>
           <li>Repeat is off by default, until you turn it on or One Stop’s Camp Mode switch turns it on.</li>
           <li>Data logger on, every 15 minutes, 256 records. Solar set to auto, and quiet when no INA3221 is present.</li>
-          <li>Same text commands as the jp.wdt2 repeater for the Seeed XIAO nRF52840 + Wio-SX1262, for repeat, logger, and solar. Bluetooth pairing PIN is 123456.</li>
+          <li>Same text commands as the jp.wdt2 repeater for repeat, logger, and solar. Bluetooth pairing PIN is 123456. The compiled default frequency is 869.618 MHz, until you change it in the app or with <code>set freq</code>.</li>
         </ul>
+        <p>File: xiao_nrf52_companion_repeat_ble-v1.18.0-jp.crep1.uf2<br>SHA-256: c931a0ab76b601830426322813c19ecfda2befd588485276532ac77ea9de1ae8</p>
         <p><a href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.crep1/xiao_nrf52_companion_repeat_ble-v1.18.0-jp.crep1.uf2">Download jp.crep1 for Seeed XIAO nRF52840 + Wio-SX1262</a></p>
       </section>
 
@@ -72,8 +141,9 @@
           <li>Keeps the 45-second, sleep-running hardware watchdog and the paired Bluetooth CLI from v1.18.0-jp.wdt.</li>
           <li>Adds a data logger: on by default, every 15 minutes, 256 records.</li>
           <li>Adds INA3221 solar sampling, default auto. If the chip is missing, those fields stay at zero and sampling stays quiet.</li>
-          <li>Text commands to turn repeat, logger, and solar on or off, and to read or clear the log.</li>
+          <li>Text commands to turn repeat, logger, and solar on or off, and to read or clear the log. The compiled default frequency is 869.618 MHz, until you change it in the app or with <code>set freq</code>.</li>
         </ul>
+        <p>File: xiao_nrf52_repeater-v1.18.0-jp.wdt2.uf2<br>SHA-256: a2a67d46c48040590d2851e04e11fdf05ce887986cb40fdfeaeb92b82ceb0b4f</p>
         <p><a href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.wdt2/xiao_nrf52_repeater-v1.18.0-jp.wdt2.uf2">Download jp.wdt2 for Seeed XIAO nRF52840 + Wio-SX1262</a> · <a href="firmware.html#previous-versions">Previous versions</a></p>
       </section>
 
@@ -101,6 +171,7 @@
           <li>Paired Bluetooth CLI (Nordic UART), pairing PIN 123456.</li>
         </ul>
         <p>It does not include the data logger or INA3221 solar sampling added in jp.wdt2.</p>
+        <p>File: xiao_nrf52_repeater-v1.18.0-jp.wdt.uf2<br>SHA-256: 92f006fd055cdec1c3c0064ef4aa6a5297cac7455a0ebee3e93dec1e0927a9b6</p>
         <p><a href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.wdt/xiao_nrf52_repeater-v1.18.0-jp.wdt.uf2">Download jp.wdt for Seeed XIAO nRF52840 + Wio-SX1262</a></p>
       </section>
 
