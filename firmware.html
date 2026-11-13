@@ -48,6 +48,7 @@
         <li><a href="#jp-wdt2">Repeater jp.wdt2</a></li>
         <li><a href="#jp-crep1-xiao">Companion jp.crep1, XIAO</a></li>
         <li><a href="#jp-crep1-heltec">Companion jp.crep1, Heltec V3</a></li>
+        <li><a href="#previous-versions">Previous versions</a></li>
         <li><a href="#flash">Flash notes</a></li>
         <li><a href="#defaults">Defaults</a></li>
         <li><a href="#commands">Commands</a></li>
@@ -56,7 +57,7 @@
       <h2 id="jp-wdt2">Repeater v1.18.0-jp.wdt2</h2>
       <p>For the Seeed XIAO nRF52840 + Wio-SX1262. This is a repeater image, with a data logger and optional INA3221 solar readings.</p>
       <p class="actions">
-        <a class="btn" href="downloads/xiao_nrf52_repeater-v1.18.0-jp.wdt2.uf2">Download jp.wdt2 UF2</a>
+        <a class="btn" href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.wdt2/xiao_nrf52_repeater-v1.18.0-jp.wdt2.uf2">Download jp.wdt2 UF2</a>
       </p>
       <dl class="facts">
         <div>
@@ -84,7 +85,7 @@
       <h2 id="jp-crep1-xiao">Companion+repeat v1.18.0-jp.crep1, XIAO</h2>
       <p>For the Seeed XIAO nRF52840 + Wio-SX1262. This is a BLE companion that can also forward flood traffic when repeat is turned on.</p>
       <p class="actions">
-        <a class="btn" href="downloads/xiao_nrf52_companion_repeat_ble-v1.18.0-jp.crep1.uf2">Download jp.crep1 UF2</a>
+        <a class="btn" href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.crep1/xiao_nrf52_companion_repeat_ble-v1.18.0-jp.crep1.uf2">Download jp.crep1 UF2</a>
       </p>
       <dl class="facts">
         <div>
@@ -112,7 +113,7 @@
       <h2 id="jp-crep1-heltec">Companion+repeat v1.18.0-jp.crep1, Heltec V3</h2>
       <p>For the Heltec LoRa32 V3. This is the merged image. Flash it at offset 0.</p>
       <p class="actions">
-        <a class="btn" href="downloads/heltec_v3_companion_repeat_ble-v1.18.0-jp.crep1-merged.bin">Download jp.crep1 merged bin</a>
+        <a class="btn" href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.crep1/heltec_v3_companion_repeat_ble-v1.18.0-jp.crep1-merged.bin">Download jp.crep1 merged bin</a>
       </p>
       <dl class="facts">
         <div>
@@ -136,6 +137,37 @@
           <dd class="sha">511ef46cff9f9e25d79e3e87c76b6fa8c6749a971aae503843e2381bb83dbbe5</dd>
         </div>
       </dl>
+
+      <h2 id="previous-versions">Previous versions</h2>
+      <p>The current firmware plus earlier C.B.H.B. builds are kept for rollback. For the XIAO repeater, the previous image is v1.18.0-jp.wdt. jp.crep1 is the first companion+repeat build we have published, so there is no earlier crep1 image to roll back to.</p>
+      <h3>Repeater v1.18.0-jp.wdt</h3>
+      <p>For the Seeed XIAO nRF52840 + Wio-SX1262. This is the earlier repeater image, with the watchdog and Bluetooth CLI, before the data logger and solar sampling in jp.wdt2. Flash it the same way as the current XIAO UF2.</p>
+      <p class="actions">
+        <a class="btn secondary" href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.wdt/xiao_nrf52_repeater-v1.18.0-jp.wdt.uf2">Download jp.wdt UF2</a>
+      </p>
+      <dl class="facts">
+        <div>
+          <dt>Board</dt>
+          <dd>XIAO nRF52840 + Wio-SX1262</dd>
+        </div>
+        <div>
+          <dt>Version</dt>
+          <dd>v1.18.0-jp.wdt</dd>
+        </div>
+        <div>
+          <dt>File</dt>
+          <dd>xiao_nrf52_repeater-v1.18.0-jp.wdt.uf2</dd>
+        </div>
+        <div>
+          <dt>Size</dt>
+          <dd>738,816 bytes (about 722 KB)</dd>
+        </div>
+        <div>
+          <dt>SHA-256</dt>
+          <dd class="sha">92f006fd055cdec1c3c0064ef4aa6a5297cac7455a0ebee3e93dec1e0927a9b6</dd>
+        </div>
+      </dl>
+      <p>What changed in each build is on the <a href="release-notes.html">release notes</a> page. All firmware files are also on this project’s <a href="https://github.com/thescrawler/cbhb/releases">cbhb releases</a> page.</p>
 
       <h2 id="flash">Flash notes</h2>
       <ul class="plain">

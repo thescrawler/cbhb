@@ -1,0 +1,4 @@
+# Large binaries are published as GitHub Release assets, not committed here.
+downloads/*.apk
+downloads/*.uf2
+downloads/*.bin
