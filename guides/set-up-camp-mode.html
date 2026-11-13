@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Set up Camp Mode · C.B.H.B.</title>
+  <meta name="description" content="Short guide to flash jp.crep1 companion firmware and turn Camp Mode (repeat) on or off in One Stop 99.1.7.">
+  <meta name="theme-color" content="#141414">
+  <link rel="icon" href="../assets/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="../css/site.css">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="site-header">
+    <p class="motto-bar">God, Family, Preparedness</p>
+    <div class="wrap header-row">
+      <a class="brand" href="../index.html">
+        <img src="../assets/cbhb-logo.jpg" width="64" height="64" alt="">
+        <span class="brand-text">
+          <span class="brand-name">C.B.H.B.</span>
+          <span class="brand-full">Columbia Basin Honey Badgers</span>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Pages">
+        <a href="../index.html">Home</a>
+        <a href="../become-a-tester.html">Tester</a>
+        <a href="../meshcore-one-stop.html">One Stop</a>
+        <a href="../firmware.html">Firmware</a>
+        <a href="../nodes.html">Nodes</a>
+        <a href="../mesh-tools.html">Mesh Tools</a>
+        <a href="index.html" aria-current="page">Guides</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" class="wrap">
+    <article class="prose">
+      <p class="eyebrow">Guide</p>
+      <h1>Set up Camp Mode</h1>
+      <p class="lede">Camp Mode lets a companion radio also forward flood traffic for other people around you. It uses companion firmware jp.crep1 and the Repeat (Camp Mode) switch in One Stop 99.1.7.</p>
+      <div class="note">
+        <p><strong class="lead-in">Test builds</strong></p>
+        <p>Firmware jp.crep1 and One Stop 99.1.7 have not been tested on radio hardware yet. Bench-test on a spare radio first.</p>
+      </div>
+
+      <h2>1. Flash jp.crep1</h2>
+      <p>Pick the file for your board on the <a href="../firmware.html#jp-crep1-xiao">firmware page</a>. Repeat is off until you turn it on.</p>
+      <ul class="plain">
+        <li><strong>XIAO nRF52840 + Wio-SX1262.</strong> Download the <a href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.crep1/xiao_nrf52_companion_repeat_ble-v1.18.0-jp.crep1.uf2">jp.crep1 UF2</a>. Double-tap reset, then copy the file onto the board.</li>
+        <li><strong>Heltec LoRa32 V3.</strong> Download the <a href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.crep1/heltec_v3_companion_repeat_ble-v1.18.0-jp.crep1-merged.bin">merged .bin</a> and flash it at offset 0 (<code>0x0</code>).</li>
+      </ul>
+      <p>The Bluetooth pairing PIN is <code>123456</code>. On the XIAO the name is <code>MeshCore-</code> plus the node name. On Heltec V3, the PIN is shown on the screen the first time if one has not been saved yet.</p>
+
+      <h2>2. Install One Stop 99.1.7</h2>
+      <p>Download <a href="https://github.com/thescrawler/cbhb/releases/download/onestop-v99.1.7/MeshCore-One-Stop-99.1.7.apk">One Stop 99.1.7</a> from the <a href="../meshcore-one-stop.html">app page</a>. This build is signed with a new key, so uninstall an older One Stop first. That clears saved devices, which you will have to add again.</p>
+
+      <h2>3. Turn Camp Mode on</h2>
+      <ol class="steps">
+        <li>Open the app and connect to the companion radio.</li>
+        <li>Use the Repeat (Camp Mode) switch to turn forwarding on.</li>
+        <li>Leave it on only while you want this radio to help pass traffic. Turn it off when you do not.</li>
+      </ol>
+      <p>You can also use the text commands <code>set repeat on</code> and <code>set repeat off</code> over the companion link. <code>get repeat</code> shows the current state.</p>
+
+      <h2>What stays the same</h2>
+      <ul class="plain">
+        <li>Messages addressed to this radio are still kept for the phone. They are not re-sent as a repeat.</li>
+        <li>Logger and solar defaults are the same as the other jp.crep1 notes on the <a href="../firmware.html#defaults">firmware page</a>: logger on, solar auto.</li>
+        <li>If you also want a solar logging repeater, that is a different build, with jp.wdt2: <a href="build-solar-logging-node.html">Build a Solar Logging Node</a>.</li>
+      </ul>
+      <p>Full change lists are on the <a href="../release-notes.html">release notes</a> page.</p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="footer-motto">God, Family, Preparedness</p>
+      <p>Columbia Basin Honey Badgers · Boardman and Hermiston, Oregon</p>
+      <p><a href="../privacy.html">Privacy policy</a> · <a href="../release-notes.html">Release notes</a> · <a href="https://github.com/thescrawler">thescrawler on GitHub</a></p>
+    </div>
+  </footer>
+</body>
+</html>

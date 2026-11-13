@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Build a Solar Logging Node · C.B.H.B.</title>
+  <meta name="description" content="Plain-language guide to build a MeshCore solar logging node with a XIAO nRF52840, Wio-SX1262, INA3221, and CN3791, running jp.wdt2 firmware and One Stop 99.1.7.">
+  <meta name="theme-color" content="#141414">
+  <link rel="icon" href="../assets/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="../css/site.css">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="site-header">
+    <p class="motto-bar">God, Family, Preparedness</p>
+    <div class="wrap header-row">
+      <a class="brand" href="../index.html">
+        <img src="../assets/cbhb-logo.jpg" width="64" height="64" alt="">
+        <span class="brand-text">
+          <span class="brand-name">C.B.H.B.</span>
+          <span class="brand-full">Columbia Basin Honey Badgers</span>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Pages">
+        <a href="../index.html">Home</a>
+        <a href="../become-a-tester.html">Tester</a>
+        <a href="../meshcore-one-stop.html">One Stop</a>
+        <a href="../firmware.html">Firmware</a>
+        <a href="../nodes.html">Nodes</a>
+        <a href="../mesh-tools.html">Mesh Tools</a>
+        <a href="index.html" aria-current="page">Guides</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" class="wrap">
+    <article class="prose">
+      <p class="eyebrow">Guide</p>
+      <h1>Build a Solar Logging Node</h1>
+      <p class="lede">This is a MeshCore repeater that also logs battery, radio, and solar readings. It uses our jp.wdt2 firmware and One Stop 99.1.7 to show the log as a chart or a CSV file.</p>
+      <div class="note">
+        <p><strong class="lead-in">Test builds</strong></p>
+        <p>Firmware jp.wdt2 and One Stop 99.1.7 have not been tested on radio hardware yet. Build and bench-test on a spare radio first. Do not flash this to a roof node until that test is done.</p>
+      </div>
+
+      <ul class="jump">
+        <li><a href="#parts">Parts</a></li>
+        <li><a href="#drawings">Drawings</a></li>
+        <li><a href="#print">Print the box</a></li>
+        <li><a href="#wire">Wire it</a></li>
+        <li><a href="#flash">Flash the firmware</a></li>
+        <li><a href="#setup">First-time setup</a></li>
+        <li><a href="#logs">View the log</a></li>
+        <li><a href="#trouble">If something is wrong</a></li>
+      </ul>
+
+      <h2 id="parts">Parts</h2>
+      <p>Links below were checked and open the real product page. Prices are not listed here. Parts without a link are described only, because no product page was verified for them.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Part</th>
+              <th>What to get</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="https://www.seeedstudio.com/Seeed-XIAO-BLE-nRF52840-p-5201.html">Seeed Studio XIAO nRF52840</a></td>
+              <td>The radio’s computer. This is the standard nRF52840, not the Sense board.</td>
+            </tr>
+            <tr>
+              <td><a href="https://www.seeedstudio.com/Wio-SX1262-for-XIAO-p-6379.html">Wio-SX1262 for XIAO</a></td>
+              <td>The LoRa radio board. The XIAO presses onto it. Official stacked height is 0.83 in (21 mm).</td>
+            </tr>
+            <tr>
+              <td><a href="https://www.amazon.com/dp/B0FTF9LC1T">MusRock INA3221, 3-pack</a></td>
+              <td>Three-channel voltage and current monitor. Use a board marked R100 (0.1 ohm) shunts. You only need one board from the pack.</td>
+            </tr>
+            <tr>
+              <td>CN3791 6 V MPPT charger</td>
+              <td>A common mini module about 1.77 × 0.79 in (45 × 20 mm). Pads: V1 = panel +, G = panel −, B+ / B− = battery. No product link is listed because a specific listing was not verified.</td>
+            </tr>
+            <tr>
+              <td>Two 240 mAh 1S Li-ion pouches</td>
+              <td>502030-class cells with a protection circuit (PCM). Typical size is about 1.28 × 0.80 × 0.20 in (32.5 × 20.2 × 5.1 to 5.5 mm). The printed pockets can be edited if your cells differ.</td>
+            </tr>
+            <tr>
+              <td>6 V solar panel</td>
+              <td>A small 6 V panel that can bond to the back of the box. The closed box is about 5.10 in long, 3.00 in wide, and 1.19 in tall, not counting the panel itself.</td>
+            </tr>
+            <tr>
+              <td>PG7 cable gland</td>
+              <td>IP68 gland, hole 0.50 in (12.6 mm), cable range about 0.12–0.26 in (3–6.5 mm), with its gasket.</td>
+            </tr>
+            <tr>
+              <td>SMA bulkhead, gasketed</td>
+              <td>D-hole 0.26 in (6.5 mm) with a 0.23 in (5.8 mm) flat. The box has a 0.41 in (10.5 mm) O-ring seat on the outside.</td>
+            </tr>
+            <tr>
+              <td>2.0 mm silicone cord</td>
+              <td>50–70 A hardness. Cut about 11.3 in (287 mm) and scarf-join it in the lid groove.</td>
+            </tr>
+            <tr>
+              <td>M3 hardware</td>
+              <td>Heat-set inserts, M3 × 5.7 mm (Ruthex or equal), and M3 × 10 mm screws for the lid. Two more M3 × 10–12 mm screws for the foot.</td>
+            </tr>
+            <tr>
+              <td>PETG or ASA filament</td>
+              <td>For the printed box, lid, and foot.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="drawings">Drawings and files</h2>
+      <p>The enclosure files are the C.B.H.B. solar node box: gasket-groove lid, cable gland, gasketed SMA bulkhead, and a 45-degree foot on the back of the panel.</p>
+      <figure class="diagram">
+        <img src="../files/solar-node/solar_node_preview.png" width="1200" height="800" alt="Exploded view of the printed solar node box, lid, and 45-degree foot.">
+        <figcaption>Printed box, lid, and foot. Full dimensions are on the enclosure drawing.</figcaption>
+      </figure>
+      <ul class="plain">
+        <li><a href="../files/solar-node/Solar_Node_Enclosure.pdf">Enclosure drawing (PDF)</a></li>
+        <li><a href="../files/solar-node/solar_node_box.stl">Box STL</a></li>
+        <li><a href="../files/solar-node/solar_node_lid.stl">Lid STL</a></li>
+        <li><a href="../files/solar-node/solar_node_foot.stl">Foot STL</a></li>
+        <li><a href="../files/solar-node/solar_node_enclosure.scad">OpenSCAD source</a>, if you need to change the battery pocket size</li>
+        <li><a href="../files/solar-node/Solar_Monitor_Build_Sheet.pdf">Power and radio wiring build sheet (PDF)</a>. That sheet is from November 12, 2026, and names firmware jp.wdt. Use <a href="../firmware.html#jp-wdt2">jp.wdt2</a> from the firmware page instead.</li>
+      </ul>
+
+      <h2 id="print">Print the box</h2>
+      <ol class="steps">
+        <li>Print in PETG or ASA, 0.008 in (0.20 mm) layers, a 0.016 in (0.40 mm) nozzle, 4 walls, 5 top and bottom layers, and about 40% gyroid fill. Use 6 walls at the insert bosses.</li>
+        <li>Print the box with the panel face on the bed. Print the lid with the outer face on the bed, tongue up. Print the foot with the mating face on the bed. No supports.</li>
+        <li>Iron the M3 heat-set inserts into the lid bosses and the foot pads, at the temperature the insert maker gives for your filament. The lid inserts are blind. They must not break through the seal.</li>
+      </ol>
+
+      <h2 id="wire">Wire it</h2>
+      <p>If you have the official Wio-SX1262 for XIAO, press the XIAO onto that board. You do not need to wire the radio pins one by one. The solar path below is the extra wiring.</p>
+      <figure class="diagram">
+        <img src="../files/solar-node/solar-logging-wiring.svg" width="1000" height="640" alt="Wiring diagram: 6 volt panel to INA3221 channel 1, to the CN3791 charger, to channel 2 and the batteries, to channel 3 and the XIAO BAT+ pad. I2C uses XIAO D7 for SDA and D6 for SCL. INA3221 A0 is tied to SDA for address 0x42.">
+        <figcaption>Power and I2C wiring from the jp.wdt2 firmware pin assignments. D7 is SDA, D6 is SCL, address 0x42. <a href="../files/solar-node/solar-logging-wiring.svg">Download the SVG</a>.</figcaption>
+      </figure>
+      <ol class="steps">
+        <li>On the INA3221, confirm the shunts are marked R100 (0.1 ohm). Move A0 to SDA so the address is 0x42. The board often ships with A0 at ground, which is 0x40, and the firmware will not see it there.</li>
+        <li>Wire the 6 V panel + to INA3221 channel 1 in, and channel 1 out to the charger V1 pad. Wire panel − to the charger G pad, and to common ground.</li>
+        <li>Wire the charger B+ to INA3221 channel 2 in. Channel 2 out is NODE+, the battery + bus. Tie NODE+ to channel 3 in as well.</li>
+        <li>Wire the two 240 mAh cells in parallel, + to NODE+, − to common ground. Use cells that have a protection circuit.</li>
+        <li>Wire INA3221 channel 3 out to the XIAO BAT+ pad, and battery − / ground to the XIAO BAT− and GND pads. The radio is powered from the battery through channel 3, so the log can see the load.</li>
+        <li>Wire INA3221 VS (VCC) to XIAO 3V3. Wire INA3221 SDA to XIAO D7, and SCL to XIAO D6. Do not use D4 or D5 for I2C. Those pins already run the LoRa radio.</li>
+        <li>On the charger board, confirm with a continuity check that G and B− are common, as this build assumes.</li>
+        <li>Fit the PG7 gland and the gasketed SMA bulkhead. Set the two batteries on edge, one in each side pocket. The Seeed stack and the charger sit in the center, with the INA3221 on the ledges over the charger.</li>
+        <li>Lay the silicone cord in the groove, join the ends, and close the lid with the four M3 screws outside the seal. There is no USB opening in the box, so flash the firmware before you close it, or plan a way to reach the XIAO later.</li>
+      </ol>
+      <p>The official radio pin map, if you are not using the stacked Wio board, is on page 2 of the <a href="../files/solar-node/Solar_Monitor_Build_Sheet.pdf">build sheet</a>: D1 DIO1, D2 RESET, D3 BUSY, D4 NSS, D5 RXEN, D8 SCK, D9 MISO, D10 MOSI, plus 3V3 and GND.</p>
+
+      <h2 id="flash">Flash the firmware</h2>
+      <p>Use repeater firmware <strong>v1.18.0-jp.wdt2</strong> for this node. It is a test build. The file and its SHA-256 are on the <a href="../firmware.html#jp-wdt2">firmware page</a>.</p>
+      <ol class="steps">
+        <li>Download the <a href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.wdt2/xiao_nrf52_repeater-v1.18.0-jp.wdt2.uf2">jp.wdt2 UF2</a>.</li>
+        <li>Double-tap the XIAO reset button so the board shows up as a drive.</li>
+        <li>Copy the UF2 file onto that drive. The board’s filesystem is not erased.</li>
+      </ol>
+
+      <h2 id="setup">First-time setup</h2>
+      <p>Defaults on jp.wdt2: repeat is on, the logger is on every 15 minutes with 256 records, and solar is set to auto. The Bluetooth name is <code>RPT-</code> plus the node name. The pairing PIN is <code>123456</code>. After you pair, log in with your admin password before changing settings.</p>
+      <p>You can use the USB serial port at 115200, or the Bluetooth CLI, or One Stop 99.1.7 once the app is installed. Useful commands:</p>
+      <pre class="commands">ver
+get logger
+set logger on
+set logger.interval 15
+get solar
+set solar auto
+solar
+logger latest</pre>
+      <p>If no INA3221 is found at 0x42, solar sampling stays quiet and those fields stay at zero. That is expected until the chip answers.</p>
+
+      <h2 id="logs">View the log in One Stop</h2>
+      <ol class="steps">
+        <li>Install <a href="https://github.com/thescrawler/cbhb/releases/download/onestop-v99.1.7/MeshCore-One-Stop-99.1.7.apk">One Stop 99.1.7</a> from the <a href="../meshcore-one-stop.html">app page</a>. It is a test build, and it is signed with a new key, so uninstall an older One Stop first. That clears saved devices, which you will have to add again.</li>
+        <li>Connect to the radio over Bluetooth, USB, or TCP, and add it in My Devices.</li>
+        <li>Open the data log viewer. You can look at the chart, or save the log as a CSV file on the phone.</li>
+        <li>From the app you can also turn the logger and solar sampling on or off, when you are logged in.</li>
+      </ol>
+      <p>A matching app walkthrough is on <a href="use-meshcore-one-stop.html">Use MeshCore One Stop</a>. Release history is on the <a href="../release-notes.html">release notes</a> page.</p>
+
+      <h2 id="trouble">If something is wrong</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>What you see</th>
+              <th>What to check</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Solar fields stay at zero</td>
+              <td>A0 must be tied to SDA (address 0x42). SDA is D7, SCL is D6, not D4 or D5. <code>set solar auto</code> or <code>on</code>. Confirm 3V3 and ground to the INA3221.</td>
+            </tr>
+            <tr>
+              <td>Channel 1 shows power, channel 2 stays near zero, in sun</td>
+              <td>The panel is working, but the charger may not be. Check the V1 and B+ wiring, and that G and B− are common.</td>
+            </tr>
+            <tr>
+              <td>Channel 1 is low in sun</td>
+              <td>Check the panel wiring and that the panel is seeing the sky.</td>
+            </tr>
+            <tr>
+              <td>The app cannot find the radio</td>
+              <td>Confirm jp.wdt2 is on the board. Pair with PIN 123456. For 99.1.7, uninstall any older One Stop first, then add the device again.</td>
+            </tr>
+            <tr>
+              <td>The log is empty</td>
+              <td><code>set logger on</code>. The first sample is about 30 seconds after boot, then every logger interval (default 15 minutes).</td>
+            </tr>
+            <tr>
+              <td>The board does not appear as a drive when flashing</td>
+              <td>Double-tap reset, not a single tap. Use a data cable, not a charge-only cable.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="footer-motto">God, Family, Preparedness</p>
+      <p>Columbia Basin Honey Badgers · Boardman and Hermiston, Oregon</p>
+      <p><a href="../privacy.html">Privacy policy</a> · <a href="../release-notes.html">Release notes</a> · <a href="https://github.com/thescrawler">thescrawler on GitHub</a></p>
+    </div>
+  </footer>
+</body>
+</html>

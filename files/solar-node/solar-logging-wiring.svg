@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 640" role="img" aria-labelledby="title desc">
+  <title id="title">Solar logging node wiring</title>
+  <desc id="desc">Power path from a 6 volt panel through the INA3221 and CN3791 charger to the batteries and the XIAO, plus I2C wires from the XIAO D7 and D6 pins. The INA3221 A0 pin is tied to SDA for address 0x42.</desc>
+  <style>
+    .box { fill: #fffdf8; stroke: #1a140f; stroke-width: 2; }
+    .box-ina { fill: #f3f6fa; }
+    .box-mppt { fill: #f6f3ea; }
+    .box-xiao { fill: #f3f7f3; }
+    .label { font: 700 16px "Source Sans 3", "Segoe UI", sans-serif; fill: #1a140f; }
+    .sub { font: 600 13px "Source Sans 3", "Segoe UI", sans-serif; fill: #4a4036; }
+    .tiny { font: 600 12px "Source Sans 3", "Segoe UI", sans-serif; fill: #4a4036; }
+    .ch1 { stroke: #0B5CAB; fill: #0B5CAB; }
+    .ch2 { stroke: #0A7A2F; fill: #0A7A2F; }
+    .ch3 { stroke: #C45C00; fill: #C45C00; }
+    .i2c { stroke: #5B2C8B; fill: #5B2C8B; }
+    .vcc { stroke: #9B1B30; fill: #9B1B30; }
+    .gnd { stroke: #222; fill: #222; }
+    .line { fill: none; stroke-width: 3; }
+    .caption { font: 700 13px "Source Sans 3", "Segoe UI", sans-serif; }
+    .title { font: 700 22px "Barlow Condensed", "Arial Narrow", sans-serif; fill: #1a140f; letter-spacing: 0.03em; }
+    .note { font: 400 13px "Source Sans 3", "Segoe UI", sans-serif; fill: #1a140f; }
+  </style>
+  <rect width="1000" height="640" fill="#f6f0e4"/>
+  <text class="title" x="24" y="36">Power and I2C wiring  ·  jp.wdt2 solar logging node</text>
+  <text class="note" x="24" y="58">All grounds are common. The official XIAO sits on the Wio-SX1262 board. The solar path below is the extra wiring.</text>
+
+  <!-- Boxes -->
+  <rect class="box" x="24" y="90" width="150" height="110" rx="6"/>
+  <text class="label" x="99" y="128" text-anchor="middle">6 V panel</text>
+  <text class="sub" x="99" y="150" text-anchor="middle">+ at the top</text>
+  <text class="sub" x="99" y="168" text-anchor="middle">− at the bottom</text>
+
+  <rect class="box box-ina" x="250" y="80" width="200" height="240" rx="6"/>
+  <text class="label" x="350" y="108" text-anchor="middle">INA3221</text>
+  <text class="sub" x="350" y="128" text-anchor="middle">address 0x42</text>
+  <text class="tiny" x="262" y="158">CH1 IN+ / IN−  panel</text>
+  <text class="tiny" x="262" y="188">CH2 IN+ / IN−  charge</text>
+  <text class="tiny" x="262" y="218">CH3 IN+ / IN−  load</text>
+  <text class="tiny" x="262" y="250">VS / VCC  from XIAO 3V3</text>
+  <text class="tiny" x="262" y="272">SDA / SCL / A0</text>
+  <text class="tiny" x="262" y="294">GND  common</text>
+
+  <rect class="box box-mppt" x="530" y="90" width="180" height="130" rx="6"/>
+  <text class="label" x="620" y="128" text-anchor="middle">CN3791 MPPT</text>
+  <text class="sub" x="620" y="148" text-anchor="middle">V1 = panel +</text>
+  <text class="sub" x="620" y="166" text-anchor="middle">G = panel −</text>
+  <text class="sub" x="620" y="184" text-anchor="middle">B+ / B− = battery</text>
+  <text class="tiny" x="620" y="206" text-anchor="middle">Confirm G and B− are common</text>
+
+  <rect class="box" x="790" y="90" width="186" height="110" rx="6"/>
+  <text class="label" x="883" y="128" text-anchor="middle">Two 240 mAh</text>
+  <text class="label" x="883" y="148" text-anchor="middle">batteries</text>
+  <text class="sub" x="883" y="170" text-anchor="middle">1S, in parallel</text>
+  <text class="sub" x="883" y="188" text-anchor="middle">+ and − with PCM</text>
+
+  <rect class="box box-xiao" x="790" y="250" width="186" height="150" rx="6"/>
+  <text class="label" x="883" y="280" text-anchor="middle">XIAO nRF52840</text>
+  <text class="sub" x="883" y="300" text-anchor="middle">on Wio-SX1262</text>
+  <text class="tiny" x="883" y="324" text-anchor="middle">BAT+ / BAT−  power</text>
+  <text class="tiny" x="883" y="342" text-anchor="middle">D7 = SDA</text>
+  <text class="tiny" x="883" y="360" text-anchor="middle">D6 = SCL</text>
+  <text class="tiny" x="883" y="378" text-anchor="middle">3V3 to INA VS</text>
+
+  <!-- Power path lines -->
+  <!-- Panel+ to INA CH1 IN+ -->
+  <path class="line ch1" d="M174 120 H250"/>
+  <polygon class="ch1" points="250,120 238,114 238,126"/>
+  <text class="caption ch1" x="186" y="110">CH1  panel +</text>
+  <!-- INA CH1 IN- to MPPT V1 -->
+  <path class="line ch1" d="M450 158 H490 V110 H530"/>
+  <polygon class="ch1" points="530,110 518,104 518,116"/>
+  <text class="caption ch1" x="456" y="100">to MPPT V1</text>
+  <!-- MPPT B+ to INA CH2 IN+ -->
+  <path class="line ch2" d="M710 140 H740 V188 H450"/>
+  <polygon class="ch2" points="450,188 462,182 462,194"/>
+  <text class="caption ch2" x="640" y="236">CH2  charge (B+)</text>
+  <!-- INA CH2 IN- / NODE+ to batteries + and to CH3 IN+ (tied) -->
+  <path class="line ch2" d="M450 200 H490 V160 H790"/>
+  <polygon class="ch2" points="790,160 778,154 778,166"/>
+  <text class="caption ch2" x="560" y="152">NODE+  to battery +</text>
+  <!-- battery+ also feeds CH3: already tied at NODE+; CH3 IN- to XIAO BAT+ -->
+  <path class="line ch3" d="M450 218 H500 V420 H883 V400"/>
+  <polygon class="ch3" points="883,400 877,388 889,388"/>
+  <text class="caption ch3" x="520" y="438">CH3  load, to XIAO BAT+</text>
+
+  <!-- Grounds -->
+  <path class="line gnd" d="M99 200 V230 H350 V320"/>
+  <path class="line gnd" d="M350 230 H620 V220"/>
+  <path class="line gnd" d="M620 230 H883 V200"/>
+  <path class="line gnd" d="M883 230 V250"/>
+  <text class="caption gnd" x="24" y="248">PANEL− and all grounds, common</text>
+
+  <!-- 3V3 -->
+  <path class="line vcc" d="M790 340 H720 V250 H450 V248"/>
+  <polygon class="vcc" points="450,250 462,244 462,256"/>
+  <text class="caption vcc" x="540" y="268">3V3  to INA VS</text>
+
+  <!-- I2C -->
+  <path class="line i2c" d="M790 348 H700 V280 H450"/>
+  <polygon class="i2c" points="450,280 462,274 462,286"/>
+  <text class="caption i2c" x="540" y="298">SDA  XIAO D7</text>
+  <path class="line i2c" d="M790 360 H680 V305 H450"/>
+  <polygon class="i2c" points="450,305 462,299 462,311"/>
+  <text class="caption i2c" x="540" y="322">SCL  XIAO D6</text>
+  <!-- A0 to SDA -->
+  <path class="line i2c" d="M250 272 H220 V280 H250"/>
+  <text class="caption i2c" x="24" y="276">A0 tied to SDA</text>
+  <text class="caption i2c" x="24" y="292">for address 0x42</text>
+
+  <!-- Legend -->
+  <rect class="box" x="24" y="470" width="952" height="150" rx="6"/>
+  <text class="label" x="40" y="498">How to read this</text>
+  <text class="note" x="40" y="524">Blue CH1: panel current and voltage, into the charger.</text>
+  <text class="note" x="40" y="544">Green CH2: charger output (charge current) to the battery + bus (NODE+).</text>
+  <text class="note" x="40" y="564">Orange CH3: current the radio draws, from NODE+ to the XIAO BAT+ pad.</text>
+  <text class="note" x="40" y="584">Purple: I2C. Move the INA3221 A0 jumper to SDA so the firmware finds it at 0x42. It often ships at 0x40.</text>
+  <text class="note" x="40" y="604">Do not use XIAO D4 or D5 for I2C. Those pins already run the LoRa radio (NSS and RXEN).</text>
+</svg>
