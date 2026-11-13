@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Build a Solar Logging Node · C.B.H.B.</title>
-  <meta name="description" content="Plain-language guide to build a MeshCore solar logging node with a XIAO nRF52840, Wio-SX1262, INA3221, and CN3791, running jp.wdt2 firmware and One Stop 99.1.7.">
+  <meta name="description" content="Plain-language guide to build a MeshCore solar logging node on the Seeed XIAO nRF52840 + Wio-SX1262, with an INA3221 and CN3791, running jp.wdt2 firmware and One Stop 99.1.7.">
   <meta name="theme-color" content="#141414">
   <link rel="icon" href="../assets/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
@@ -38,10 +38,10 @@
     <article class="prose">
       <p class="eyebrow">Guide</p>
       <h1>Build a Solar Logging Node</h1>
-      <p class="lede">This is a MeshCore repeater that also logs battery, radio, and solar readings. It uses our jp.wdt2 firmware and One Stop 99.1.7 to show the log as a chart or a CSV file.</p>
+      <p class="lede">This is a MeshCore repeater on the Seeed XIAO nRF52840 + Wio-SX1262 that also logs battery, radio, and solar readings. It uses jp.wdt2 for that board, and One Stop 99.1.7 to show the log as a chart or a CSV file.</p>
       <div class="note">
         <p><strong class="lead-in">Test builds</strong></p>
-        <p>Firmware jp.wdt2 and One Stop 99.1.7 have not been tested on radio hardware yet. Build and bench-test on a spare radio first. Do not flash this to a roof node until that test is done.</p>
+        <p>Firmware jp.wdt2 for the Seeed XIAO nRF52840 + Wio-SX1262, and One Stop 99.1.7, have not been tested on radio hardware yet. Build and bench-test on a spare Seeed XIAO nRF52840 + Wio-SX1262 first. Do not flash this to a roof node until that test is done.</p>
       </div>
 
       <ul class="jump">
@@ -72,7 +72,7 @@
             </tr>
             <tr>
               <td><a href="https://www.seeedstudio.com/Wio-SX1262-for-XIAO-p-6379.html">Wio-SX1262 for XIAO</a></td>
-              <td>The LoRa radio board. The XIAO presses onto it. Official stacked height is 0.83 in (21 mm).</td>
+              <td>The LoRa radio board. The Seeed XIAO nRF52840 presses onto it. Official stacked height is 0.83 in (21 mm).</td>
             </tr>
             <tr>
               <td><a href="https://www.amazon.com/dp/B0FTF9LC1T">MusRock INA3221, 3-pack</a></td>
@@ -137,34 +137,34 @@
       </ol>
 
       <h2 id="wire">Wire it</h2>
-      <p>If you have the official Wio-SX1262 for XIAO, press the XIAO onto that board. You do not need to wire the radio pins one by one. The solar path below is the extra wiring.</p>
+      <p>Press the Seeed XIAO nRF52840 onto the Wio-SX1262 for XIAO. You do not need to wire the radio pins one by one. The solar path below is the extra wiring.</p>
       <figure class="diagram">
-        <img src="../files/solar-node/solar-logging-wiring.svg" width="1000" height="640" alt="Wiring diagram: 6 volt panel to INA3221 channel 1, to the CN3791 charger, to channel 2 and the batteries, to channel 3 and the XIAO BAT+ pad. I2C uses XIAO D7 for SDA and D6 for SCL. INA3221 A0 is tied to SDA for address 0x42.">
-        <figcaption>Power and I2C wiring from the jp.wdt2 firmware pin assignments. D7 is SDA, D6 is SCL, address 0x42. <a href="../files/solar-node/solar-logging-wiring.svg">Download the SVG</a>.</figcaption>
+        <img src="../files/solar-node/solar-logging-wiring.svg" width="1000" height="640" alt="Wiring diagram for the Seeed XIAO nRF52840 + Wio-SX1262: 6 volt panel to INA3221 channel 1, to the CN3791 charger, to channel 2 and the batteries, to channel 3 and the Seeed XIAO nRF52840 BAT+ pad. I2C uses D7 for SDA and D6 for SCL. INA3221 A0 is tied to SDA for address 0x42.">
+        <figcaption>Power and I2C wiring from the jp.wdt2 pin assignments on the Seeed XIAO nRF52840 + Wio-SX1262. D7 is SDA, D6 is SCL, address 0x42. <a href="../files/solar-node/solar-logging-wiring.svg">Download the SVG</a>.</figcaption>
       </figure>
       <ol class="steps">
         <li>On the INA3221, confirm the shunts are marked R100 (0.1 ohm). Move A0 to SDA so the address is 0x42. The board often ships with A0 at ground, which is 0x40, and the firmware will not see it there.</li>
         <li>Wire the 6 V panel + to INA3221 channel 1 in, and channel 1 out to the charger V1 pad. Wire panel − to the charger G pad, and to common ground.</li>
         <li>Wire the charger B+ to INA3221 channel 2 in. Channel 2 out is NODE+, the battery + bus. Tie NODE+ to channel 3 in as well.</li>
         <li>Wire the two 240 mAh cells in parallel, + to NODE+, − to common ground. Use cells that have a protection circuit.</li>
-        <li>Wire INA3221 channel 3 out to the XIAO BAT+ pad, and battery − / ground to the XIAO BAT− and GND pads. The radio is powered from the battery through channel 3, so the log can see the load.</li>
-        <li>Wire INA3221 VS (VCC) to XIAO 3V3. Wire INA3221 SDA to XIAO D7, and SCL to XIAO D6. Do not use D4 or D5 for I2C. Those pins already run the LoRa radio.</li>
+        <li>Wire INA3221 channel 3 out to the Seeed XIAO nRF52840 BAT+ pad, and battery − / ground to the Seeed XIAO nRF52840 BAT− and GND pads. The radio is powered from the battery through channel 3, so the log can see the load.</li>
+        <li>Wire INA3221 VS (VCC) to the Seeed XIAO nRF52840 3V3 pad. Wire INA3221 SDA to D7, and SCL to D6, on the Seeed XIAO nRF52840. Do not use D4 or D5 for I2C. Those pins already run the Wio-SX1262.</li>
         <li>On the charger board, confirm with a continuity check that G and B− are common, as this build assumes.</li>
         <li>Fit the PG7 gland and the gasketed SMA bulkhead. Set the two batteries on edge, one in each side pocket. The Seeed stack and the charger sit in the center, with the INA3221 on the ledges over the charger.</li>
-        <li>Lay the silicone cord in the groove, join the ends, and close the lid with the four M3 screws outside the seal. There is no USB opening in the box, so flash the firmware before you close it, or plan a way to reach the XIAO later.</li>
+        <li>Lay the silicone cord in the groove, join the ends, and close the lid with the four M3 screws outside the seal. There is no USB opening in the box, so flash jp.wdt2 to the Seeed XIAO nRF52840 before you close it, or plan a way to reach that board later.</li>
       </ol>
-      <p>The official radio pin map, if you are not using the stacked Wio board, is on page 2 of the <a href="../files/solar-node/Solar_Monitor_Build_Sheet.pdf">build sheet</a>: D1 DIO1, D2 RESET, D3 BUSY, D4 NSS, D5 RXEN, D8 SCK, D9 MISO, D10 MOSI, plus 3V3 and GND.</p>
+      <p>The official radio pin map, if you are not using the stacked Wio-SX1262 for XIAO, is on page 2 of the <a href="../files/solar-node/Solar_Monitor_Build_Sheet.pdf">build sheet</a>: D1 DIO1, D2 RESET, D3 BUSY, D4 NSS, D5 RXEN, D8 SCK, D9 MISO, D10 MOSI, plus 3V3 and GND, on the Seeed XIAO nRF52840.</p>
 
       <h2 id="flash">Flash the firmware</h2>
-      <p>Use repeater firmware <strong>v1.18.0-jp.wdt2</strong> for this node. It is a test build. The file and its SHA-256 are on the <a href="../firmware.html#jp-wdt2">firmware page</a>.</p>
+      <p>Use repeater firmware <strong>v1.18.0-jp.wdt2</strong> for the Seeed XIAO nRF52840 + Wio-SX1262. It is a test build, and it is only for that board. The file and its SHA-256 are on the <a href="../firmware.html#jp-wdt2">firmware page</a>. Do not flash it onto a RAK4631 WisBlock or a Heltec T096.</p>
       <ol class="steps">
-        <li>Download the <a href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.wdt2/xiao_nrf52_repeater-v1.18.0-jp.wdt2.uf2">jp.wdt2 UF2</a>.</li>
-        <li>Double-tap the XIAO reset button so the board shows up as a drive.</li>
-        <li>Copy the UF2 file onto that drive. The board’s filesystem is not erased.</li>
+        <li>Download the <a href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.wdt2/xiao_nrf52_repeater-v1.18.0-jp.wdt2.uf2">jp.wdt2 UF2 for Seeed XIAO nRF52840 + Wio-SX1262</a>.</li>
+        <li>Double-tap the reset button on the Seeed XIAO nRF52840 so it shows up as a drive.</li>
+        <li>Copy the UF2 file onto that drive. The Seeed XIAO nRF52840 filesystem is not erased.</li>
       </ol>
 
       <h2 id="setup">First-time setup</h2>
-      <p>Defaults on jp.wdt2: repeat is on, the logger is on every 15 minutes with 256 records, and solar is set to auto. The Bluetooth name is <code>RPT-</code> plus the node name. The pairing PIN is <code>123456</code>. After you pair, log in with your admin password before changing settings.</p>
+      <p>Defaults on jp.wdt2 for the Seeed XIAO nRF52840 + Wio-SX1262: repeat is on, the logger is on every 15 minutes with 256 records, and solar is set to auto. The Bluetooth name is <code>RPT-</code> plus the node name. The pairing PIN is <code>123456</code>. After you pair, log in with your admin password before changing settings.</p>
       <p>You can use the USB serial port at 115200, or the Bluetooth CLI, or One Stop 99.1.7 once the app is installed. Useful commands:</p>
       <pre class="commands">ver
 get logger
@@ -209,15 +209,15 @@ logger latest</pre>
             </tr>
             <tr>
               <td>The app cannot find the radio</td>
-              <td>Confirm jp.wdt2 is on the board. Pair with PIN 123456. For 99.1.7, uninstall any older One Stop first, then add the device again.</td>
+              <td>Confirm jp.wdt2 for the Seeed XIAO nRF52840 + Wio-SX1262 is on that board. Pair with PIN 123456. For 99.1.7, uninstall any older One Stop first, then add the device again.</td>
             </tr>
             <tr>
               <td>The log is empty</td>
               <td><code>set logger on</code>. The first sample is about 30 seconds after boot, then every logger interval (default 15 minutes).</td>
             </tr>
             <tr>
-              <td>The board does not appear as a drive when flashing</td>
-              <td>Double-tap reset, not a single tap. Use a data cable, not a charge-only cable.</td>
+              <td>The Seeed XIAO nRF52840 does not appear as a drive when flashing</td>
+              <td>Double-tap the reset button on the Seeed XIAO nRF52840, not a single tap. Use a data cable, not a charge-only cable.</td>
             </tr>
           </tbody>
         </table>

@@ -52,22 +52,21 @@
       </section>
 
       <section class="release" id="firmware-jp-crep1">
-        <h2>Firmware v1.18.0-jp.crep1</h2>
-        <p class="meta">November 13, 2026 · companion+repeat · XIAO nRF52840 + Wio-SX1262 and Heltec V3 · test build</p>
-        <p>Based on upstream MeshCore v1.18.0. This build has not been tested on radio hardware yet.</p>
+        <h2>Firmware v1.18.0-jp.crep1, Seeed XIAO nRF52840 + Wio-SX1262</h2>
+        <p class="meta">November 13, 2026 · companion+repeat · Seeed XIAO nRF52840 + Wio-SX1262 · test build</p>
+        <p>Based on upstream MeshCore v1.18.0. This file is only for the Seeed XIAO nRF52840 + Wio-SX1262. It has not been tested on radio hardware yet. RAK4631 WisBlock (RAK19003 base) and Heltec T096 builds are coming.</p>
         <ul class="plain">
           <li>BLE companion that can also forward flood traffic, using MeshCore’s client-repeat path and repeater hop limits.</li>
           <li>Repeat is off by default, until you turn it on or One Stop’s Camp Mode switch turns it on.</li>
           <li>Data logger on, every 15 minutes, 256 records. Solar set to auto, and quiet when no INA3221 is present.</li>
-          <li>Same text commands as the jp.wdt2 repeater for repeat, logger, and solar. Bluetooth pairing PIN is 123456.</li>
-          <li>Heltec image is a merged <code>.bin</code>, flashed at offset 0.</li>
+          <li>Same text commands as the jp.wdt2 repeater for the Seeed XIAO nRF52840 + Wio-SX1262, for repeat, logger, and solar. Bluetooth pairing PIN is 123456.</li>
         </ul>
-        <p><a href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.crep1/xiao_nrf52_companion_repeat_ble-v1.18.0-jp.crep1.uf2">Download for XIAO</a> · <a href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.crep1/heltec_v3_companion_repeat_ble-v1.18.0-jp.crep1-merged.bin">Download for Heltec V3</a></p>
+        <p><a href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.crep1/xiao_nrf52_companion_repeat_ble-v1.18.0-jp.crep1.uf2">Download jp.crep1 for Seeed XIAO nRF52840 + Wio-SX1262</a></p>
       </section>
 
       <section class="release" id="firmware-jp-wdt2">
-        <h2>Firmware v1.18.0-jp.wdt2</h2>
-        <p class="meta">November 13, 2026 · repeater · XIAO nRF52840 + Wio-SX1262 · test build</p>
+        <h2>Firmware v1.18.0-jp.wdt2, Seeed XIAO nRF52840 + Wio-SX1262</h2>
+        <p class="meta">November 13, 2026 · repeater · Seeed XIAO nRF52840 + Wio-SX1262 · test build</p>
         <p>Based on upstream MeshCore v1.18.0. This build has not been tested on radio hardware yet.</p>
         <ul class="plain">
           <li>Keeps the 45-second, sleep-running hardware watchdog and the paired Bluetooth CLI from v1.18.0-jp.wdt.</li>
@@ -75,7 +74,7 @@
           <li>Adds INA3221 solar sampling, default auto. If the chip is missing, those fields stay at zero and sampling stays quiet.</li>
           <li>Text commands to turn repeat, logger, and solar on or off, and to read or clear the log.</li>
         </ul>
-        <p><a href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.wdt2/xiao_nrf52_repeater-v1.18.0-jp.wdt2.uf2">Download jp.wdt2</a> · <a href="firmware.html#previous-versions">Previous versions</a></p>
+        <p><a href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.wdt2/xiao_nrf52_repeater-v1.18.0-jp.wdt2.uf2">Download jp.wdt2 for Seeed XIAO nRF52840 + Wio-SX1262</a> · <a href="firmware.html#previous-versions">Previous versions</a></p>
       </section>
 
       <section class="release" id="one-stop-99-1-6">
@@ -93,16 +92,16 @@
       </section>
 
       <section class="release" id="firmware-jp-wdt">
-        <h2>Firmware v1.18.0-jp.wdt</h2>
-        <p class="meta">November 8, 2026 · repeater · XIAO nRF52840 + Wio-SX1262</p>
-        <p>Based on upstream MeshCore v1.18.0. This is the earlier XIAO repeater image, kept for rollback from jp.wdt2.</p>
+        <h2>Firmware v1.18.0-jp.wdt, Seeed XIAO nRF52840 + Wio-SX1262</h2>
+        <p class="meta">November 8, 2026 · repeater · Seeed XIAO nRF52840 + Wio-SX1262</p>
+        <p>Based on upstream MeshCore v1.18.0. This is the earlier Seeed XIAO nRF52840 + Wio-SX1262 repeater image, kept for rollback from jp.wdt2 on that same board.</p>
         <ul class="plain">
-          <li>45-second, sleep-running hardware watchdog on the nRF52840.</li>
+          <li>45-second, sleep-running hardware watchdog on the Seeed XIAO nRF52840.</li>
           <li>Atomic writes for prefs, ACL, and identity.</li>
           <li>Paired Bluetooth CLI (Nordic UART), pairing PIN 123456.</li>
         </ul>
         <p>It does not include the data logger or INA3221 solar sampling added in jp.wdt2.</p>
-        <p><a href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.wdt/xiao_nrf52_repeater-v1.18.0-jp.wdt.uf2">Download jp.wdt</a></p>
+        <p><a href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.wdt/xiao_nrf52_repeater-v1.18.0-jp.wdt.uf2">Download jp.wdt for Seeed XIAO nRF52840 + Wio-SX1262</a></p>
       </section>
 
       <section class="release" id="one-stop-99-1-5">

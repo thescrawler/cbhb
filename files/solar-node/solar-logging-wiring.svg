@@ -22,7 +22,7 @@
     .note { font: 400 13px "Source Sans 3", "Segoe UI", sans-serif; fill: #1a140f; }
   </style>
   <rect width="1000" height="640" fill="#f6f0e4"/>
-  <text class="title" x="24" y="36">Power and I2C wiring  ·  jp.wdt2 solar logging node</text>
+  <text class="title" x="24" y="36">Power and I2C wiring  ·  Seeed XIAO nRF52840 + Wio-SX1262  ·  jp.wdt2</text>
   <text class="note" x="24" y="58">All grounds are common. The official XIAO sits on the Wio-SX1262 board. The solar path below is the extra wiring.</text>
 
   <!-- Boxes -->
@@ -55,7 +55,7 @@
   <text class="sub" x="883" y="188" text-anchor="middle">+ and − with PCM</text>
 
   <rect class="box box-xiao" x="790" y="250" width="186" height="150" rx="6"/>
-  <text class="label" x="883" y="280" text-anchor="middle">XIAO nRF52840</text>
+  <text class="label" x="883" y="280" text-anchor="middle" >Seeed XIAO nRF52840</text>
   <text class="sub" x="883" y="300" text-anchor="middle">on Wio-SX1262</text>
   <text class="tiny" x="883" y="324" text-anchor="middle">BAT+ / BAT−  power</text>
   <text class="tiny" x="883" y="342" text-anchor="middle">D7 = SDA</text>

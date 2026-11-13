@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Firmware · C.B.H.B.</title>
-  <meta name="description" content="Test firmware for C.B.H.B. MeshCore radios: repeater v1.18.0-jp.wdt2 and companion+repeat v1.18.0-jp.crep1, based on MeshCore v1.18.0. Not yet tested on radio hardware.">
+  <meta name="description" content="Test firmware for C.B.H.B. MeshCore radios. Current files are for the Seeed XIAO nRF52840 + Wio-SX1262: repeater v1.18.0-jp.wdt2 and companion+repeat v1.18.0-jp.crep1. RAK4631 WisBlock (RAK19003 base) and Heltec T096 builds are coming.">
   <meta name="theme-color" content="#141414">
   <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -39,15 +39,15 @@
       <p class="eyebrow">MeshCore radios</p>
       <h1>Firmware</h1>
       <p class="lede">These images are C.B.H.B. builds on top of MeshCore v1.18.0. Use the files on this page, not a copy sent by someone else.</p>
+      <p><strong>Supported boards.</strong> Seeed XIAO nRF52840 + Wio-SX1262 (available now). RAK4631 WisBlock (RAK19003 base) and Heltec T096 (builds coming). Each file is built for one of those boards, and is labeled with that board’s name.</p>
       <div class="note">
         <p><strong class="lead-in">Test builds</strong></p>
-        <p>Repeater <strong>v1.18.0-jp.wdt2</strong> and companion+repeat <strong>v1.18.0-jp.crep1</strong> have not been tested on radio hardware yet. Bench-test on a spare radio first. What changed is on the <a href="release-notes.html">release notes</a> page. The matching Android app is <a href="meshcore-one-stop.html">One Stop 99.1.7</a>.</p>
+        <p>Repeater <strong>v1.18.0-jp.wdt2</strong> and companion+repeat <strong>v1.18.0-jp.crep1</strong> for the Seeed XIAO nRF52840 + Wio-SX1262 have not been tested on radio hardware yet. Bench-test on a spare Seeed XIAO nRF52840 + Wio-SX1262 first. What changed is on the <a href="release-notes.html">release notes</a> page. The matching Android app is <a href="meshcore-one-stop.html">One Stop 99.1.7</a>.</p>
       </div>
 
       <ul class="jump">
-        <li><a href="#jp-wdt2">Repeater jp.wdt2</a></li>
-        <li><a href="#jp-crep1-xiao">Companion jp.crep1, XIAO</a></li>
-        <li><a href="#jp-crep1-heltec">Companion jp.crep1, Heltec V3</a></li>
+        <li><a href="#jp-wdt2">Repeater jp.wdt2, Seeed XIAO nRF52840 + Wio-SX1262</a></li>
+        <li><a href="#jp-crep1-xiao">Companion jp.crep1, Seeed XIAO nRF52840 + Wio-SX1262</a></li>
         <li><a href="#previous-versions">Previous versions</a></li>
         <li><a href="#flash">Flash notes</a></li>
         <li><a href="#defaults">Defaults</a></li>
@@ -55,7 +55,7 @@
         <li><a href="#build-guides">Build guides</a></li>
       </ul>
 
-      <h2 id="jp-wdt2">Repeater v1.18.0-jp.wdt2</h2>
+      <h2 id="jp-wdt2">Repeater v1.18.0-jp.wdt2, Seeed XIAO nRF52840 + Wio-SX1262</h2>
       <p>For the Seeed XIAO nRF52840 + Wio-SX1262. This is a repeater image, with a data logger and optional INA3221 solar readings.</p>
       <p class="actions">
         <a class="btn" href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.wdt2/xiao_nrf52_repeater-v1.18.0-jp.wdt2.uf2">Download jp.wdt2 UF2</a>
@@ -63,7 +63,7 @@
       <dl class="facts">
         <div>
           <dt>Board</dt>
-          <dd>XIAO nRF52840 + Wio-SX1262</dd>
+          <dd>Seeed XIAO nRF52840 + Wio-SX1262</dd>
         </div>
         <div>
           <dt>Version</dt>
@@ -83,7 +83,7 @@
         </div>
       </dl>
 
-      <h2 id="jp-crep1-xiao">Companion+repeat v1.18.0-jp.crep1, XIAO</h2>
+      <h2 id="jp-crep1-xiao">Companion+repeat v1.18.0-jp.crep1, Seeed XIAO nRF52840 + Wio-SX1262</h2>
       <p>For the Seeed XIAO nRF52840 + Wio-SX1262. This is a BLE companion that can also forward flood traffic when repeat is turned on.</p>
       <p class="actions">
         <a class="btn" href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.crep1/xiao_nrf52_companion_repeat_ble-v1.18.0-jp.crep1.uf2">Download jp.crep1 UF2</a>
@@ -91,7 +91,7 @@
       <dl class="facts">
         <div>
           <dt>Board</dt>
-          <dd>XIAO nRF52840 + Wio-SX1262</dd>
+          <dd>Seeed XIAO nRF52840 + Wio-SX1262</dd>
         </div>
         <div>
           <dt>Version</dt>
@@ -111,45 +111,18 @@
         </div>
       </dl>
 
-      <h2 id="jp-crep1-heltec">Companion+repeat v1.18.0-jp.crep1, Heltec V3</h2>
-      <p>For the Heltec LoRa32 V3. This is the merged image. Flash it at offset 0.</p>
-      <p class="actions">
-        <a class="btn" href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.crep1/heltec_v3_companion_repeat_ble-v1.18.0-jp.crep1-merged.bin">Download jp.crep1 merged bin</a>
-      </p>
-      <dl class="facts">
-        <div>
-          <dt>Board</dt>
-          <dd>Heltec LoRa32 V3</dd>
-        </div>
-        <div>
-          <dt>Version</dt>
-          <dd>v1.18.0-jp.crep1</dd>
-        </div>
-        <div>
-          <dt>File</dt>
-          <dd>heltec_v3_companion_repeat_ble-v1.18.0-jp.crep1-merged.bin</dd>
-        </div>
-        <div>
-          <dt>Size</dt>
-          <dd>1,349,440 bytes (about 1.3 MB)</dd>
-        </div>
-        <div>
-          <dt>SHA-256</dt>
-          <dd class="sha">511ef46cff9f9e25d79e3e87c76b6fa8c6749a971aae503843e2381bb83dbbe5</dd>
-        </div>
-      </dl>
 
       <h2 id="previous-versions">Previous versions</h2>
-      <p>The current firmware plus earlier C.B.H.B. builds are kept for rollback. For the XIAO repeater, the previous image is v1.18.0-jp.wdt. jp.crep1 is the first companion+repeat build we have published, so there is no earlier crep1 image to roll back to.</p>
+      <p>The current firmware plus earlier C.B.H.B. builds are kept for rollback. For the Seeed XIAO nRF52840 + Wio-SX1262 repeater, the previous image is v1.18.0-jp.wdt. jp.crep1 for the Seeed XIAO nRF52840 + Wio-SX1262 is the first companion+repeat build we have published, so there is no earlier crep1 image to roll back to.</p>
       <h3>Repeater v1.18.0-jp.wdt</h3>
-      <p>For the Seeed XIAO nRF52840 + Wio-SX1262. This is the earlier repeater image, with the watchdog and Bluetooth CLI, before the data logger and solar sampling in jp.wdt2. Flash it the same way as the current XIAO UF2.</p>
+      <p>For the Seeed XIAO nRF52840 + Wio-SX1262. This is the earlier repeater image, with the watchdog and Bluetooth CLI, before the data logger and solar sampling in jp.wdt2. Flash it the same way as the current Seeed XIAO nRF52840 + Wio-SX1262 UF2.</p>
       <p class="actions">
         <a class="btn secondary" href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.wdt/xiao_nrf52_repeater-v1.18.0-jp.wdt.uf2">Download jp.wdt UF2</a>
       </p>
       <dl class="facts">
         <div>
           <dt>Board</dt>
-          <dd>XIAO nRF52840 + Wio-SX1262</dd>
+          <dd>Seeed XIAO nRF52840 + Wio-SX1262</dd>
         </div>
         <div>
           <dt>Version</dt>
@@ -172,9 +145,9 @@
 
       <h2 id="flash">Flash notes</h2>
       <ul class="plain">
-        <li><strong>XIAO (UF2).</strong> Double-tap the reset button so the board shows up as a drive, then copy the <code>.uf2</code> file onto it. The board’s filesystem is not erased.</li>
-        <li><strong>Heltec V3 (merged bin).</strong> Flash the merged <code>.bin</code> at offset <code>0x0</code>. Use this merged file, not a separate app-only image.</li>
+        <li><strong>Seeed XIAO nRF52840 + Wio-SX1262 (UF2).</strong> Double-tap the reset button on the Seeed XIAO nRF52840 so it shows up as a drive, then copy the <code>.uf2</code> file onto it. The Seeed XIAO nRF52840 filesystem is not erased.</li>
       </ul>
+      <p>When RAK4631 WisBlock (RAK19003 base) and Heltec T096 builds are posted, each one will have its own file and flash steps, named for that board.</p>
 
       <h2 id="defaults">Defaults</h2>
       <h3>Companion+repeat, jp.crep1</h3>
@@ -182,7 +155,7 @@
         <li>Repeat is off until you turn it on, or until One Stop’s Camp Mode switch turns it on.</li>
         <li>Logger is on, every 15 minutes, 256 records.</li>
         <li>Solar is set to auto. If no INA3221 is present, solar sampling stays quiet.</li>
-        <li>Bluetooth pairing PIN is <code>123456</code>. On the XIAO the name is <code>MeshCore-</code> plus the node name. On Heltec V3, the PIN is shown on the screen the first time if one has not been saved yet.</li>
+        <li>Bluetooth pairing PIN is <code>123456</code>. On the Seeed XIAO nRF52840 + Wio-SX1262 the name is <code>MeshCore-</code> plus the node name.</li>
       </ul>
       <h3>Repeater, jp.wdt2</h3>
       <ul class="plain">
@@ -193,7 +166,7 @@
       </ul>
 
       <h2 id="commands">Commands</h2>
-      <p>These text commands work on both jp.wdt2 and jp.crep1. On the companion, send them over the companion link. On the repeater, use USB serial or the Bluetooth CLI after login.</p>
+      <p>These text commands work on both jp.wdt2 and jp.crep1 for the Seeed XIAO nRF52840 + Wio-SX1262. On the companion, send them over the companion link. On the repeater, use USB serial or the Bluetooth CLI after login.</p>
       <pre class="commands">ver
 get repeat
 set repeat on
@@ -219,8 +192,8 @@ stats-packets</pre>
 
       <h2 id="build-guides">Build guides</h2>
       <ul class="plain">
-        <li><a href="guides/build-solar-logging-node.html">Build a Solar Logging Node</a> — parts, drawings, and wiring for jp.wdt2 with INA3221 solar logging.</li>
-        <li><a href="guides/set-up-camp-mode.html">Set up Camp Mode</a> — flash jp.crep1 and use the Repeat switch in One Stop 99.1.7.</li>
+        <li><a href="guides/build-solar-logging-node.html">Build a Solar Logging Node</a> — parts, drawings, and wiring for jp.wdt2 on the Seeed XIAO nRF52840 + Wio-SX1262 with INA3221 solar logging.</li>
+        <li><a href="guides/set-up-camp-mode.html">Set up Camp Mode</a> — flash jp.crep1 for the Seeed XIAO nRF52840 + Wio-SX1262 and use the Repeat switch in One Stop 99.1.7.</li>
       </ul>
     </article>
   </main>

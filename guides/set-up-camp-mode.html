@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Set up Camp Mode · C.B.H.B.</title>
-  <meta name="description" content="Short guide to flash jp.crep1 companion firmware and turn Camp Mode (repeat) on or off in One Stop 99.1.7.">
+  <meta name="description" content="Short guide to flash jp.crep1 companion firmware on the Seeed XIAO nRF52840 + Wio-SX1262 and turn Camp Mode (repeat) on or off in One Stop 99.1.7.">
   <meta name="theme-color" content="#141414">
   <link rel="icon" href="../assets/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
@@ -38,19 +38,18 @@
     <article class="prose">
       <p class="eyebrow">Guide</p>
       <h1>Set up Camp Mode</h1>
-      <p class="lede">Camp Mode lets a companion radio also forward flood traffic for other people around you. It uses companion firmware jp.crep1 and the Repeat (Camp Mode) switch in One Stop 99.1.7.</p>
+      <p class="lede">Camp Mode lets a companion radio also forward flood traffic for other people around you. The current file is jp.crep1 for the Seeed XIAO nRF52840 + Wio-SX1262, used with the Repeat (Camp Mode) switch in One Stop 99.1.7.</p>
       <div class="note">
         <p><strong class="lead-in">Test builds</strong></p>
-        <p>Firmware jp.crep1 and One Stop 99.1.7 have not been tested on radio hardware yet. Bench-test on a spare radio first.</p>
+        <p>Firmware jp.crep1 for the Seeed XIAO nRF52840 + Wio-SX1262, and One Stop 99.1.7, have not been tested on radio hardware yet. Bench-test on a spare Seeed XIAO nRF52840 + Wio-SX1262 first.</p>
       </div>
 
-      <h2>1. Flash jp.crep1</h2>
-      <p>Pick the file for your board on the <a href="../firmware.html#jp-crep1-xiao">firmware page</a>. Repeat is off until you turn it on.</p>
+      <h2>1. Flash jp.crep1 on the Seeed XIAO nRF52840 + Wio-SX1262</h2>
+      <p>The current jp.crep1 file is only for the Seeed XIAO nRF52840 + Wio-SX1262. It is on the <a href="../firmware.html#jp-crep1-xiao">firmware page</a>. Repeat is off until you turn it on. RAK4631 WisBlock (RAK19003 base) and Heltec T096 builds are coming, and will be listed by those board names when they are ready. Do not flash this Seeed XIAO nRF52840 file onto a RAK4631 WisBlock or a Heltec T096.</p>
       <ul class="plain">
-        <li><strong>XIAO nRF52840 + Wio-SX1262.</strong> Download the <a href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.crep1/xiao_nrf52_companion_repeat_ble-v1.18.0-jp.crep1.uf2">jp.crep1 UF2</a>. Double-tap reset, then copy the file onto the board.</li>
-        <li><strong>Heltec LoRa32 V3.</strong> Download the <a href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.crep1/heltec_v3_companion_repeat_ble-v1.18.0-jp.crep1-merged.bin">merged .bin</a> and flash it at offset 0 (<code>0x0</code>).</li>
+        <li><strong>Seeed XIAO nRF52840 + Wio-SX1262.</strong> Download the <a href="https://github.com/thescrawler/cbhb/releases/download/fw-v1.18.0-jp.crep1/xiao_nrf52_companion_repeat_ble-v1.18.0-jp.crep1.uf2">jp.crep1 UF2 for Seeed XIAO nRF52840 + Wio-SX1262</a>. Double-tap the reset button on the Seeed XIAO nRF52840, then copy the file onto it.</li>
       </ul>
-      <p>The Bluetooth pairing PIN is <code>123456</code>. On the XIAO the name is <code>MeshCore-</code> plus the node name. On Heltec V3, the PIN is shown on the screen the first time if one has not been saved yet.</p>
+      <p>The Bluetooth pairing PIN is <code>123456</code>. On the Seeed XIAO nRF52840 + Wio-SX1262 the name is <code>MeshCore-</code> plus the node name.</p>
 
       <h2>2. Install One Stop 99.1.7</h2>
       <p>Download <a href="https://github.com/thescrawler/cbhb/releases/download/onestop-v99.1.7/MeshCore-One-Stop-99.1.7.apk">One Stop 99.1.7</a> from the <a href="../meshcore-one-stop.html">app page</a>. This build is signed with a new key, so uninstall an older One Stop first. That clears saved devices, which you will have to add again.</p>
