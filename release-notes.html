@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Release notes · C.B.H.B.</title>
+  <meta name="description" content="Release notes for MeshCore One Stop and C.B.H.B. MeshCore firmware, newest first. Each new app or firmware build gets an entry here.">
+  <meta name="theme-color" content="#141414">
+  <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="site-header">
+    <p class="motto-bar">God, Family, Preparedness</p>
+    <div class="wrap header-row">
+      <a class="brand" href="index.html">
+        <img src="assets/cbhb-logo.jpg" width="64" height="64" alt="">
+        <span class="brand-text">
+          <span class="brand-name">C.B.H.B.</span>
+          <span class="brand-full">Columbia Basin Honey Badgers</span>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Pages">
+        <a href="index.html">Home</a>
+        <a href="become-a-tester.html">Tester</a>
+        <a href="meshcore-one-stop.html">One Stop</a>
+        <a href="firmware.html">Firmware</a>
+        <a href="nodes.html">Nodes</a>
+        <a href="mesh-tools.html">Mesh Tools</a>
+        <a href="guides/index.html">Guides</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" class="wrap">
+    <article class="prose">
+      <p class="eyebrow">App and firmware</p>
+      <h1>Release notes</h1>
+      <p class="lede">Newest first. Each new MeshCore One Stop build, and each new C.B.H.B. firmware build, gets an entry on this page. Downloads are on the <a href="meshcore-one-stop.html">One Stop</a> and <a href="firmware.html">firmware</a> pages.</p>
+
+      <section class="release" id="one-stop-99-1-7">
+        <h2>One Stop 99.1.7</h2>
+        <p class="meta">November 13, 2026 · Android sideload · test build</p>
+        <p>This build has not been tested on radio hardware yet. It is signed with a new key, so uninstall the old One Stop first, then install this file. Uninstalling clears saved devices, which you will have to add again.</p>
+        <ul class="plain">
+          <li>Repeat (Camp Mode) switch, for companion firmware jp.crep1.</li>
+          <li>Remote logger and solar on/off, plus a data log viewer with a chart and CSV export, for repeater firmware jp.wdt2.</li>
+        </ul>
+        <p><a href="meshcore-one-stop.html">Download One Stop 99.1.7</a></p>
+      </section>
+
+      <section class="release" id="firmware-jp-crep1">
+        <h2>Firmware v1.18.0-jp.crep1</h2>
+        <p class="meta">November 13, 2026 · companion+repeat · XIAO nRF52840 + Wio-SX1262 and Heltec V3 · test build</p>
+        <p>Based on upstream MeshCore v1.18.0. This build has not been tested on radio hardware yet.</p>
+        <ul class="plain">
+          <li>BLE companion that can also forward flood traffic, using MeshCore’s client-repeat path and repeater hop limits.</li>
+          <li>Repeat is off by default, until you turn it on or One Stop’s Camp Mode switch turns it on.</li>
+          <li>Data logger on, every 15 minutes, 256 records. Solar set to auto, and quiet when no INA3221 is present.</li>
+          <li>Same text commands as the jp.wdt2 repeater for repeat, logger, and solar. Bluetooth pairing PIN is 123456.</li>
+          <li>Heltec image is a merged <code>.bin</code>, flashed at offset 0.</li>
+        </ul>
+        <p><a href="firmware.html#jp-crep1-xiao">Download for XIAO</a> · <a href="firmware.html#jp-crep1-heltec">Download for Heltec V3</a></p>
+      </section>
+
+      <section class="release" id="firmware-jp-wdt2">
+        <h2>Firmware v1.18.0-jp.wdt2</h2>
+        <p class="meta">November 13, 2026 · repeater · XIAO nRF52840 + Wio-SX1262 · test build</p>
+        <p>Based on upstream MeshCore v1.18.0. This build has not been tested on radio hardware yet.</p>
+        <ul class="plain">
+          <li>Keeps the 45-second, sleep-running hardware watchdog and the paired Bluetooth CLI from v1.18.0-jp.wdt.</li>
+          <li>Adds a data logger: on by default, every 15 minutes, 256 records.</li>
+          <li>Adds INA3221 solar sampling, default auto. If the chip is missing, those fields stay at zero and sampling stays quiet.</li>
+          <li>Text commands to turn repeat, logger, and solar on or off, and to read or clear the log.</li>
+        </ul>
+        <p><a href="firmware.html#jp-wdt2">Download jp.wdt2</a></p>
+      </section>
+
+      <section class="release" id="one-stop-99-1-6">
+        <h2>One Stop 99.1.6</h2>
+        <p class="meta">November 12, 2026 · Android sideload</p>
+        <p>First sideload build hosted as a download on this site. Replaced on this site by 99.1.7 on November 13, 2026.</p>
+        <ul class="plain">
+          <li>My Devices, with a phone-only display name, Request status, ping, and login.</li>
+          <li>Voltage readings and a trend, plus a battery percent estimate, when you ask.</li>
+          <li>Settings export (passwords and the private key left out), a per-device CSV log, and GPX export for saved locations.</li>
+          <li>Map layers from public feeds, kept separate from mesh messages.</li>
+          <li>Remote retune for a radio you own, and app themes.</li>
+        </ul>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="footer-motto">God, Family, Preparedness</p>
+      <p>Columbia Basin Honey Badgers · Boardman and Hermiston, Oregon</p>
+      <p><a href="privacy.html">Privacy policy</a> · <a href="release-notes.html">Release notes</a> · <a href="https://github.com/thescrawler">thescrawler on GitHub</a></p>
+    </div>
+  </footer>
+</body>
+</html>

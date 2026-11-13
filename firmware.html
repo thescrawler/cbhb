@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Firmware · C.B.H.B.</title>
+  <meta name="description" content="Test firmware for C.B.H.B. MeshCore radios: repeater v1.18.0-jp.wdt2 and companion+repeat v1.18.0-jp.crep1, based on MeshCore v1.18.0. Not yet tested on radio hardware.">
+  <meta name="theme-color" content="#141414">
+  <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="site-header">
+    <p class="motto-bar">God, Family, Preparedness</p>
+    <div class="wrap header-row">
+      <a class="brand" href="index.html">
+        <img src="assets/cbhb-logo.jpg" width="64" height="64" alt="">
+        <span class="brand-text">
+          <span class="brand-name">C.B.H.B.</span>
+          <span class="brand-full">Columbia Basin Honey Badgers</span>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Pages">
+        <a href="index.html">Home</a>
+        <a href="become-a-tester.html">Tester</a>
+        <a href="meshcore-one-stop.html">One Stop</a>
+        <a href="firmware.html" aria-current="page">Firmware</a>
+        <a href="nodes.html">Nodes</a>
+        <a href="mesh-tools.html">Mesh Tools</a>
+        <a href="guides/index.html">Guides</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" class="wrap">
+    <article class="prose">
+      <p class="eyebrow">MeshCore radios</p>
+      <h1>Firmware</h1>
+      <p class="lede">These images are C.B.H.B. builds on top of MeshCore v1.18.0. Use the files on this page, not a copy sent by someone else.</p>
+      <div class="note">
+        <p><strong class="lead-in">Test builds</strong></p>
+        <p>Repeater <strong>v1.18.0-jp.wdt2</strong> and companion+repeat <strong>v1.18.0-jp.crep1</strong> have not been tested on radio hardware yet. Bench-test on a spare radio first. What changed is on the <a href="release-notes.html">release notes</a> page. The matching Android app is <a href="meshcore-one-stop.html">One Stop 99.1.7</a>.</p>
+      </div>
+
+      <ul class="jump">
+        <li><a href="#jp-wdt2">Repeater jp.wdt2</a></li>
+        <li><a href="#jp-crep1-xiao">Companion jp.crep1, XIAO</a></li>
+        <li><a href="#jp-crep1-heltec">Companion jp.crep1, Heltec V3</a></li>
+        <li><a href="#flash">Flash notes</a></li>
+        <li><a href="#defaults">Defaults</a></li>
+        <li><a href="#commands">Commands</a></li>
+      </ul>
+
+      <h2 id="jp-wdt2">Repeater v1.18.0-jp.wdt2</h2>
+      <p>For the Seeed XIAO nRF52840 + Wio-SX1262. This is a repeater image, with a data logger and optional INA3221 solar readings.</p>
+      <p class="actions">
+        <a class="btn" href="downloads/xiao_nrf52_repeater-v1.18.0-jp.wdt2.uf2">Download jp.wdt2 UF2</a>
+      </p>
+      <dl class="facts">
+        <div>
+          <dt>Board</dt>
+          <dd>XIAO nRF52840 + Wio-SX1262</dd>
+        </div>
+        <div>
+          <dt>Version</dt>
+          <dd>v1.18.0-jp.wdt2</dd>
+        </div>
+        <div>
+          <dt>File</dt>
+          <dd>xiao_nrf52_repeater-v1.18.0-jp.wdt2.uf2</dd>
+        </div>
+        <div>
+          <dt>Size</dt>
+          <dd>747,008 bytes (about 730 KB)</dd>
+        </div>
+        <div>
+          <dt>SHA-256</dt>
+          <dd class="sha">a2a67d46c48040590d2851e04e11fdf05ce887986cb40fdfeaeb92b82ceb0b4f</dd>
+        </div>
+      </dl>
+
+      <h2 id="jp-crep1-xiao">Companion+repeat v1.18.0-jp.crep1, XIAO</h2>
+      <p>For the Seeed XIAO nRF52840 + Wio-SX1262. This is a BLE companion that can also forward flood traffic when repeat is turned on.</p>
+      <p class="actions">
+        <a class="btn" href="downloads/xiao_nrf52_companion_repeat_ble-v1.18.0-jp.crep1.uf2">Download jp.crep1 UF2</a>
+      </p>
+      <dl class="facts">
+        <div>
+          <dt>Board</dt>
+          <dd>XIAO nRF52840 + Wio-SX1262</dd>
+        </div>
+        <div>
+          <dt>Version</dt>
+          <dd>v1.18.0-jp.crep1</dd>
+        </div>
+        <div>
+          <dt>File</dt>
+          <dd>xiao_nrf52_companion_repeat_ble-v1.18.0-jp.crep1.uf2</dd>
+        </div>
+        <div>
+          <dt>Size</dt>
+          <dd>770,048 bytes (about 752 KB)</dd>
+        </div>
+        <div>
+          <dt>SHA-256</dt>
+          <dd class="sha">c931a0ab76b601830426322813c19ecfda2befd588485276532ac77ea9de1ae8</dd>
+        </div>
+      </dl>
+
+      <h2 id="jp-crep1-heltec">Companion+repeat v1.18.0-jp.crep1, Heltec V3</h2>
+      <p>For the Heltec LoRa32 V3. This is the merged image. Flash it at offset 0.</p>
+      <p class="actions">
+        <a class="btn" href="downloads/heltec_v3_companion_repeat_ble-v1.18.0-jp.crep1-merged.bin">Download jp.crep1 merged bin</a>
+      </p>
+      <dl class="facts">
+        <div>
+          <dt>Board</dt>
+          <dd>Heltec LoRa32 V3</dd>
+        </div>
+        <div>
+          <dt>Version</dt>
+          <dd>v1.18.0-jp.crep1</dd>
+        </div>
+        <div>
+          <dt>File</dt>
+          <dd>heltec_v3_companion_repeat_ble-v1.18.0-jp.crep1-merged.bin</dd>
+        </div>
+        <div>
+          <dt>Size</dt>
+          <dd>1,349,440 bytes (about 1.3 MB)</dd>
+        </div>
+        <div>
+          <dt>SHA-256</dt>
+          <dd class="sha">511ef46cff9f9e25d79e3e87c76b6fa8c6749a971aae503843e2381bb83dbbe5</dd>
+        </div>
+      </dl>
+
+      <h2 id="flash">Flash notes</h2>
+      <ul class="plain">
+        <li><strong>XIAO (UF2).</strong> Double-tap the reset button so the board shows up as a drive, then copy the <code>.uf2</code> file onto it. The board’s filesystem is not erased.</li>
+        <li><strong>Heltec V3 (merged bin).</strong> Flash the merged <code>.bin</code> at offset <code>0x0</code>. Use this merged file, not a separate app-only image.</li>
+      </ul>
+
+      <h2 id="defaults">Defaults</h2>
+      <h3>Companion+repeat, jp.crep1</h3>
+      <ul class="plain">
+        <li>Repeat is off until you turn it on, or until One Stop’s Camp Mode switch turns it on.</li>
+        <li>Logger is on, every 15 minutes, 256 records.</li>
+        <li>Solar is set to auto. If no INA3221 is present, solar sampling stays quiet.</li>
+        <li>Bluetooth pairing PIN is <code>123456</code>. On the XIAO the name is <code>MeshCore-</code> plus the node name. On Heltec V3, the PIN is shown on the screen the first time if one has not been saved yet.</li>
+      </ul>
+      <h3>Repeater, jp.wdt2</h3>
+      <ul class="plain">
+        <li>Repeat is on. This is a repeater.</li>
+        <li>Logger is on, every 15 minutes, 256 records.</li>
+        <li>Solar is set to auto and uses an INA3221 when one is found. If the chip does not answer, those fields stay at zero for that sample.</li>
+        <li>USB serial is 115200. Bluetooth is a Nordic UART named <code>RPT-</code> plus the node name. Pairing PIN is <code>123456</code>. After you pair, log in with your admin password before using the commands below.</li>
+      </ul>
+
+      <h2 id="commands">Commands</h2>
+      <p>These text commands work on both jp.wdt2 and jp.crep1. On the companion, send them over the companion link. On the repeater, use USB serial or the Bluetooth CLI after login.</p>
+      <pre class="commands">ver
+get repeat
+set repeat on
+set repeat off
+get logger
+set logger on
+set logger off
+set logger.interval 15
+logger latest
+logger page 0
+logger clear
+get solar
+set solar auto
+set solar on
+set solar off
+solar
+get watchdog
+power
+stats-core
+stats-radio
+stats-packets</pre>
+      <p><code>logger page 0</code> is the newest record. <code>set logger.interval</code> is in minutes.</p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="footer-motto">God, Family, Preparedness</p>
+      <p>Columbia Basin Honey Badgers · Boardman and Hermiston, Oregon</p>
+      <p><a href="privacy.html">Privacy policy</a> · <a href="release-notes.html">Release notes</a> · <a href="https://github.com/thescrawler">thescrawler on GitHub</a></p>
+    </div>
+  </footer>
+</body>
+</html>

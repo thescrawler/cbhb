@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MeshCore One Stop · C.B.H.B.</title>
-  <meta name="description" content="MeshCore One Stop is an app designed to bring all of your MeshCore needs to one location. Download the current Android sideload build, 99.1.6, from this site.">
+  <meta name="description" content="MeshCore One Stop is an app designed to bring all of your MeshCore needs to one location. Download the current Android sideload build, 99.1.7, from this site. This is a test build.">
   <meta name="theme-color" content="#141414">
   <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -26,6 +26,7 @@
         <a href="index.html">Home</a>
         <a href="become-a-tester.html">Tester</a>
         <a href="meshcore-one-stop.html" aria-current="page">One Stop</a>
+        <a href="firmware.html">Firmware</a>
         <a href="nodes.html">Nodes</a>
         <a href="mesh-tools.html">Mesh Tools</a>
         <a href="guides/index.html">Guides</a>
@@ -46,7 +47,7 @@
         </div>
         <div>
           <dt>Sideload build</dt>
-          <dd>99.1.6</dd>
+          <dd>99.1.7</dd>
         </div>
         <div>
           <dt>Phone</dt>
@@ -61,19 +62,23 @@
       <h2>Downloads</h2>
       <p>The current sideload build is hosted on this site. Use this file, not a copy sent by someone else:</p>
       <p class="actions">
-        <a class="btn" href="downloads/MeshCore-One-Stop-99.1.6.apk">Download MeshCore One Stop 99.1.6</a>
+        <a class="btn" href="downloads/MeshCore-One-Stop-99.1.7.apk">Download MeshCore One Stop 99.1.7</a>
       </p>
       <dl class="facts">
         <div>
           <dt>File</dt>
-          <dd>MeshCore-One-Stop-99.1.6.apk</dd>
+          <dd>MeshCore-One-Stop-99.1.7.apk</dd>
         </div>
         <div>
           <dt>SHA-256</dt>
-          <dd>c9473812a262e5b717ddf8cb554689b1737054e4394f1faa1bb401aa5068b452</dd>
+          <dd class="sha">39a9a004d4faae247c943394bbf0152f0a80ed37e9eb17b85c729f4805187522</dd>
         </div>
       </dl>
-      <p>Install steps, including how to allow installs from this source and what to do if Play Protect appears, are under <a href="#install-and-pair">Install and pair</a>.</p>
+      <div class="note">
+        <p><strong class="lead-in">Test build, and a new signing key</strong></p>
+        <p>99.1.7 has not been tested on radio hardware yet. Bench-test on a spare radio first. It is signed with a new key, so uninstall the old One Stop before you install this file. Uninstalling clears saved devices, which you will have to add again.</p>
+      </div>
+      <p>Install steps, including how to allow installs from this source and what to do if Play Protect appears, are under <a href="#install-and-pair">Install and pair</a>. Matching <a href="firmware.html">firmware</a> and the <a href="release-notes.html">release notes</a> are on this site.</p>
       <p>Public listings in three other places are still planned. None of those listings exist yet:</p>
       <ul class="plain">
         <li>Google Play — not listed yet</li>
@@ -82,8 +87,15 @@
       </ul>
       <p>A Play Store closed test is also planned. That test is not open yet. See <a href="become-a-tester.html">Become a tester</a>. The <a href="privacy.html">privacy policy</a> matches how the app works.</p>
 
+      <h2 id="whats-new">What’s new in 99.1.7</h2>
+      <ul class="plain">
+        <li>Repeat (Camp Mode) switch, for companion firmware <a href="firmware.html#jp-crep1-xiao">jp.crep1</a>.</li>
+        <li>Remote logger and solar on/off, plus a data log viewer with a chart and CSV export, for repeater firmware <a href="firmware.html#jp-wdt2">jp.wdt2</a>.</li>
+      </ul>
+      <p>The matching firmware is also a test build and has not been tested on radio hardware yet. Full notes are on the <a href="release-notes.html">release notes</a> page.</p>
+
       <h2>User guide</h2>
-      <p>Everyday use of the current sideload build, 99.1.6. A matching step list is on <a href="guides/use-meshcore-one-stop.html">Use MeshCore One Stop</a>.</p>
+      <p>Everyday use of the current sideload build, 99.1.7. A matching step list is on <a href="guides/use-meshcore-one-stop.html">Use MeshCore One Stop</a>.</p>
       <ul class="jump">
         <li><a href="#install-and-pair">Install and pair</a></li>
         <li><a href="#my-devices">My Devices</a></li>
@@ -95,9 +107,9 @@
       </ul>
 
       <h2 id="install-and-pair">Install and pair</h2>
-      <p>The app is not on the Play Store yet. Install the APK from this page on a 64-bit Android phone running Android 7 or later.</p>
+      <p>The app is not on the Play Store yet. Install the APK from this page on a 64-bit Android phone running Android 7 or later. If an older One Stop is already on the phone, uninstall it first. This build uses a new signing key, and uninstalling clears saved devices, which you will have to add again.</p>
       <ol class="steps">
-        <li>On that phone, open this page and tap <a href="downloads/MeshCore-One-Stop-99.1.6.apk">Download MeshCore One Stop 99.1.6</a>.</li>
+        <li>On that phone, open this page and tap <a href="downloads/MeshCore-One-Stop-99.1.7.apk">Download MeshCore One Stop 99.1.7</a>.</li>
         <li>Open the downloaded file. If Android says it is not allowed to install from this source, allow installs from the browser or the Files app you used, then open the file again. That permission is only for that one source, not for every app on the phone.</li>
         <li>Google Play Protect may say it does not recognize the app, because this build is not from the Play Store. That warning is expected. If you are sure you downloaded the file from this site, you can choose to install anyway. If you are not sure, do not install it. You can check the SHA-256 checksum above against the file you received.</li>
         <li>Finish the install and open MeshCore One Stop.</li>
@@ -130,6 +142,7 @@
       <h2 id="export">Export and logs</h2>
       <p>You can export settings. That export leaves out passwords and the private key.</p>
       <p>You can also save a CSV log for each device. The log stays on the phone unless you choose to share the file yourself.</p>
+      <p>If the radio is running repeater firmware jp.wdt2, 99.1.7 can also pull the radio’s data log and show it as a chart, or save it as CSV.</p>
       <p>If a contact or a repeater has a location, you can export those points to a GPX file, for use in a map program. That file is also made on the phone. Exporting it does not upload it to C.B.H.B.</p>
 
       <h2 id="map-and-messages">Map and messages</h2>
@@ -164,7 +177,7 @@
     <div class="wrap">
       <p class="footer-motto">God, Family, Preparedness</p>
       <p>Columbia Basin Honey Badgers · Boardman and Hermiston, Oregon</p>
-      <p><a href="privacy.html">Privacy policy</a> · <a href="https://github.com/thescrawler">thescrawler on GitHub</a></p>
+      <p><a href="privacy.html">Privacy policy</a> · <a href="release-notes.html">Release notes</a> · <a href="https://github.com/thescrawler">thescrawler on GitHub</a></p>
     </div>
   </footer>
 </body>

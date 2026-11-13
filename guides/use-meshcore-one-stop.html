@@ -26,6 +26,7 @@
         <a href="../index.html">Home</a>
         <a href="../become-a-tester.html">Tester</a>
         <a href="../meshcore-one-stop.html">One Stop</a>
+        <a href="../firmware.html">Firmware</a>
         <a href="../nodes.html">Nodes</a>
         <a href="../mesh-tools.html">Mesh Tools</a>
         <a href="index.html" aria-current="page">Guides</a>
@@ -37,12 +38,12 @@
     <article class="prose">
       <p class="eyebrow">Guide</p>
       <h1>Use MeshCore One Stop</h1>
-      <p class="lede">MeshCore One Stop is an app designed to bring all of your MeshCore needs to one location. Package name com.cbhb.meshcoreonestop. These steps are for the current sideload build, 99.1.6. Longer notes live on the <a href="../meshcore-one-stop.html">app page</a>.</p>
+      <p class="lede">MeshCore One Stop is an app designed to bring all of your MeshCore needs to one location. Package name com.cbhb.meshcoreonestop. These steps are for the current sideload build, 99.1.7, a test build. Longer notes live on the <a href="../meshcore-one-stop.html">app page</a>.</p>
 
       <h2>1. Install the app from this site</h2>
-      <p>Public listings on Google Play, GitHub releases, and F-Droid are not up yet. The closed Play Store test is not open yet either. For now, install the APK from this website on a 64-bit Android phone running Android 7 or later.</p>
+      <p>Public listings on Google Play, GitHub releases, and F-Droid are not up yet. The closed Play Store test is not open yet either. For now, install the APK from this website on a 64-bit Android phone running Android 7 or later. 99.1.7 is a test build and has not been tested on radio hardware yet. It is signed with a new key, so uninstall the old One Stop first. That clears saved devices, which you will have to add again.</p>
       <ol class="steps">
-        <li>On that phone, open the <a href="../meshcore-one-stop.html">MeshCore One Stop</a> page and tap <a href="../downloads/MeshCore-One-Stop-99.1.6.apk">Download MeshCore One Stop 99.1.6</a>.</li>
+        <li>On that phone, open the <a href="../meshcore-one-stop.html">MeshCore One Stop</a> page and tap <a href="../downloads/MeshCore-One-Stop-99.1.7.apk">Download MeshCore One Stop 99.1.7</a>.</li>
         <li>Open the downloaded file. If Android says it is not allowed to install from this source, allow installs from the browser or the Files app you used, then open the file again.</li>
         <li>Play Protect may say it does not recognize the app, because this build is not from the Play Store. That warning is expected. If you downloaded the file from this site, you can choose to install anyway. The SHA-256 checksum on the <a href="../meshcore-one-stop.html">app page</a> is for the official file.</li>
         <li>Finish the install and open the app.</li>
@@ -59,7 +60,7 @@
       <p>Opening My Devices, or pulling down to refresh, shows the last saved readings. It does not radio the repeater. Open a device and tap <strong>Request status</strong> for one new reading. You get voltage and the trend. The battery percent is estimated from that voltage. The app does not keep checking in the background. You can also ping the repeater to see if it is reachable, and log in to save an admin password. Details: <a href="../meshcore-one-stop.html#telemetry">Telemetry</a>.</p>
 
       <h2>5. Save a log or settings, if you need them</h2>
-      <p>Settings export leaves out passwords and the private key. A CSV log is per device and stays on the phone until you share the file. If a contact or a repeater has a location, you can also export those points to a GPX file. Details: <a href="../meshcore-one-stop.html#export">Export and logs</a>.</p>
+      <p>Settings export leaves out passwords and the private key. A CSV log is per device and stays on the phone until you share the file. If a contact or a repeater has a location, you can also export those points to a GPX file. If the radio is running repeater firmware jp.wdt2, 99.1.7 can also pull the radio’s data log, show it as a chart, or save it as CSV. Details: <a href="../meshcore-one-stop.html#export">Export and logs</a>.</p>
 
       <h2>6. Treat the map and the messages as two paths</h2>
       <p>Messages need the radio connection. They stay on the mesh and do not go through the internet. Map layers may download public feeds (MeshCore nodes, Meshtastic nodes, FT8 when you ask, and Winlink reports from WINLINK to APWL2K) and keep the last good download on the phone. Details: <a href="../meshcore-one-stop.html#map-and-messages">Map and messages</a>.</p>
@@ -67,7 +68,7 @@
       <h2>7. Retune only a radio you own</h2>
       <p>On My Devices, tick one or more owned repeaters and tap <strong>Radio</strong>. Set frequency, bandwidth, spreading factor, and coding rate. Use <strong>Save as main</strong> first if this is the channel you want to come home to. <strong>Restore main</strong> fills the form back in; you still apply it the same way. The app asks you to confirm. The radio reboots and drops off until the companion is on the same settings. You can retune the companion in that same step, or match it yourself. Transmit power is not changed. This needs a saved admin password. A guest login cannot change the channel. Details: <a href="../meshcore-one-stop.html#retune">Remote retune</a>.</p>
 
-      <p>Day, Night, OLED, and Auto are the themes. You can also create, copy, or import a theme. The <a href="../privacy.html">privacy policy</a> says what stays on the phone.</p>
+      <p>Day, Night, OLED, and Auto are the themes. You can also create, copy, or import a theme. The <a href="../privacy.html">privacy policy</a> says what stays on the phone. What’s new in 99.1.7, and the matching firmware, are on the <a href="../release-notes.html">release notes</a> and <a href="../firmware.html">firmware</a> pages.</p>
     </article>
   </main>
 
@@ -75,7 +76,7 @@
     <div class="wrap">
       <p class="footer-motto">God, Family, Preparedness</p>
       <p>Columbia Basin Honey Badgers · Boardman and Hermiston, Oregon</p>
-      <p><a href="../privacy.html">Privacy policy</a> · <a href="https://github.com/thescrawler">thescrawler on GitHub</a></p>
+      <p><a href="../privacy.html">Privacy policy</a> · <a href="../release-notes.html">Release notes</a> · <a href="https://github.com/thescrawler">thescrawler on GitHub</a></p>
     </div>
   </footer>
 </body>
